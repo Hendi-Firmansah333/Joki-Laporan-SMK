@@ -17,6 +17,7 @@ import {
   X
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
+import logoImg from './assets/logo.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -41,7 +42,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary dark">Joki<span className="text-secondary">Laporan</span></span>
+              <img src={logoImg} alt="JokiLaporan Logo" className="h-10 w-auto" />
             </div>
             
             {/* Desktop Menu */}
@@ -79,7 +80,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="beranda" className="relative pt-32 pb-20 min-h-screen flex items-center overflow-hidden">
+      <section id="beranda" className="relative pt-32 lg:pt-40 pb-16 min-h-[90vh] flex items-start lg:items-center overflow-hidden">
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="Hero Background" className="w-full h-full object-cover object-right md:object-center" />
@@ -92,12 +93,12 @@ function App() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div 
             initial="hidden" animate="visible" variants={staggerContainer}
-            className="text-left space-y-8 max-w-2xl"
+            className="text-left space-y-6 max-w-2xl"
           >
-            <motion.div variants={fadeInUp} className="inline-block bg-primary/10 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-4 border border-primary/20 backdrop-blur-md shadow-sm">
+            <motion.div variants={fadeInUp} className="inline-block bg-primary/10 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-2 border border-primary/20 backdrop-blur-md shadow-sm">
               #StudentSupport
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold leading-tight text-secondary">
+            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-[4rem] font-bold leading-tight text-secondary">
               Joki Laporan <br/>
               <span className="text-primary">Solusi Tugas,</span><br/>
               Bukan Drama!
@@ -256,7 +257,7 @@ function App() {
       <footer className="bg-white pt-16 pb-8 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-            <div className="text-2xl font-bold text-primary dark">Joki<span className="text-secondary">Laporan</span></div>
+            <img src={logoImg} alt="JokiLaporan Logo" className="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             <div className="flex gap-6 text-sm font-medium text-gray-500">
               <a href="#beranda" className="hover:text-primary">Beranda</a>
               <a href="#layanan" className="hover:text-primary">Layanan</a>
