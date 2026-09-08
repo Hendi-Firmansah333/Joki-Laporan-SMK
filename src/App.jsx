@@ -16,6 +16,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import heroImg from './assets/hero.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -114,18 +115,17 @@ function App() {
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}
-          className="flex-1 relative"
+          className="flex-1 relative w-full"
         >
-          {/* Placeholder for Hero Illustration */}
-          <div className="relative w-full aspect-square max-w-lg mx-auto bg-gradient-to-tr from-blue-100 to-blue-50 rounded-[3rem] shadow-2xl overflow-hidden flex items-center justify-center border-4 border-white">
-            <div className="absolute inset-0 bg-primary/10 animate-pulse"></div>
-            <span className="text-primary font-bold text-xl relative z-10">[Hero Character Illustration]</span>
+          <div className="relative w-full max-w-2xl mx-auto rounded-[2rem] shadow-2xl overflow-hidden border-4 border-white transform hover:-translate-y-2 transition-transform duration-500">
+            <img src={heroImg} alt="Hero Joki Laporan" className="w-full h-auto object-cover" />
+            
             {/* Decorative elements */}
-            <div className="absolute top-10 right-10 bg-white p-3 rounded-2xl shadow-lg rotate-12 animate-float">
-              <span className="font-bold text-green-500">A+</span>
+            <div className="absolute -top-4 -right-2 md:top-10 md:-right-6 bg-white p-3 rounded-2xl shadow-xl rotate-12 animate-float">
+              <span className="font-bold text-green-500 text-xl">A+</span>
             </div>
-            <div className="absolute bottom-20 left-4 bg-white p-4 rounded-2xl shadow-lg -rotate-6 animate-float" style={{ animationDelay: '1s' }}>
-              <span className="font-bold text-primary text-sm">Tugas Beres! 🚀</span>
+            <div className="absolute -bottom-4 -left-2 md:bottom-10 md:-left-6 bg-white px-5 py-3 rounded-2xl shadow-xl -rotate-6 animate-float" style={{ animationDelay: '1s' }}>
+              <span className="font-bold text-primary text-sm whitespace-nowrap">Tugas Beres! 🚀</span>
             </div>
           </div>
         </motion.div>
