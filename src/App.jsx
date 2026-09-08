@@ -80,7 +80,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="beranda" className="relative pt-32 lg:pt-40 pb-16 min-h-[90vh] flex items-start lg:items-center overflow-hidden">
+      <section id="beranda" className="relative pt-24 lg:pt-28 pb-10 h-screen min-h-[600px] flex items-center overflow-hidden">
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="Hero Background" className="w-full h-full object-cover object-right md:object-center" />
@@ -93,12 +93,12 @@ function App() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div 
             initial="hidden" animate="visible" variants={staggerContainer}
-            className="text-left space-y-6 max-w-2xl"
+            className="text-left space-y-4 lg:space-y-5 max-w-2xl"
           >
             <motion.div variants={fadeInUp} className="inline-block bg-primary/10 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-2 border border-primary/20 backdrop-blur-md shadow-sm">
               #StudentSupport
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-[4rem] font-bold leading-tight text-secondary">
+            <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary">
               Joki Laporan <br/>
               <span className="text-primary">Solusi Tugas,</span><br/>
               Bukan Drama!
