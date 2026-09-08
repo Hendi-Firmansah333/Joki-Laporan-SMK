@@ -79,56 +79,50 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="beranda" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-        <motion.div 
-          initial="hidden" animate="visible" variants={staggerContainer}
-          className="flex-1 text-center lg:text-left space-y-8"
-        >
-          <motion.div variants={fadeInUp} className="inline-block bg-blue-100 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-4">
-            #StudentSupport
-          </motion.div>
-          <motion.h1 variants={fadeInUp} className="text-5xl lg:text-6xl font-bold leading-tight text-secondary">
-            Joki Laporan <br/>
-            <span className="text-primary">Solusi Tugas,</span><br/>
-            Bukan Drama!
-          </motion.h1>
-          <motion.p variants={fadeInUp} className="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
-            Bantu kerjakan laporan, makalah, proposal, PPT dan segala jenis tugas SMK dengan cepat, rapi, dan berkualitas.
-          </motion.p>
-          
-          <motion.div variants={fadeInUp} className="flex flex-wrap justify-center lg:justify-start gap-4">
-            <div className="flex items-center gap-2"><ShieldCheck className="text-primary" size={20}/><span className="font-medium text-sm">100% Aman</span></div>
-            <div className="flex items-center gap-2"><ThumbsUp className="text-primary" size={20}/><span className="font-medium text-sm">Revisi OK</span></div>
-            <div className="flex items-center gap-2"><Clock className="text-primary" size={20}/><span className="font-medium text-sm">Tepat Waktu</span></div>
-            <div className="flex items-center gap-2"><Wallet className="text-primary" size={20}/><span className="font-medium text-sm">Harga Pelajar</span></div>
-          </motion.div>
+      <section id="beranda" className="relative pt-32 pb-20 min-h-screen flex items-center overflow-hidden">
+        {/* Full Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img src={heroImg} alt="Hero Background" className="w-full h-full object-cover object-right md:object-center" />
+          {/* Gradient overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+          {/* Bottom gradient to blend smoothly with next section */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90"></div>
+        </div>
 
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <button className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2">
-              Order Sekarang <ChevronRight size={20} />
-            </button>
-            <button className="w-full sm:w-auto btn-secondary">
-              Lihat Daftar Harga
-            </button>
-          </motion.div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}
-          className="flex-1 relative w-full"
-        >
-          <div className="relative w-full max-w-2xl mx-auto rounded-[2rem] shadow-2xl overflow-hidden border-4 border-white transform hover:-translate-y-2 transition-transform duration-500">
-            <img src={heroImg} alt="Hero Joki Laporan" className="w-full h-auto object-cover" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <motion.div 
+            initial="hidden" animate="visible" variants={staggerContainer}
+            className="text-left space-y-8 max-w-2xl"
+          >
+            <motion.div variants={fadeInUp} className="inline-block bg-primary/10 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-4 border border-primary/20 backdrop-blur-md shadow-sm">
+              #StudentSupport
+            </motion.div>
+            <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold leading-tight text-secondary">
+              Joki Laporan <br/>
+              <span className="text-primary">Solusi Tugas,</span><br/>
+              Bukan Drama!
+            </motion.h1>
+            <motion.p variants={fadeInUp} className="text-lg text-gray-700 font-medium max-w-xl">
+              Bantu kerjakan laporan, makalah, proposal, PPT dan segala jenis tugas SMK dengan cepat, rapi, dan berkualitas.
+            </motion.p>
             
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-2 md:top-10 md:-right-6 bg-white p-3 rounded-2xl shadow-xl rotate-12 animate-float">
-              <span className="font-bold text-green-500 text-xl">A+</span>
-            </div>
-            <div className="absolute -bottom-4 -left-2 md:bottom-10 md:-left-6 bg-white px-5 py-3 rounded-2xl shadow-xl -rotate-6 animate-float" style={{ animationDelay: '1s' }}>
-              <span className="font-bold text-primary text-sm whitespace-nowrap">Tugas Beres! 🚀</span>
-            </div>
-          </div>
-        </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white shadow-sm"><ShieldCheck className="text-primary" size={20}/><span className="font-bold text-sm text-secondary">100% Aman</span></div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white shadow-sm"><ThumbsUp className="text-primary" size={20}/><span className="font-bold text-sm text-secondary">Revisi OK</span></div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white shadow-sm"><Clock className="text-primary" size={20}/><span className="font-bold text-sm text-secondary">Tepat Waktu</span></div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white shadow-sm"><Wallet className="text-primary" size={20}/><span className="font-bold text-sm text-secondary">Harga Pelajar</span></div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <button className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
+                Order Sekarang <ChevronRight size={24} />
+              </button>
+              <button className="w-full sm:w-auto btn-secondary bg-white/80 backdrop-blur-md border border-white shadow-md px-8 py-4 text-lg">
+                Lihat Daftar Harga
+              </button>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Services Section */}
