@@ -24,7 +24,9 @@ import {
   Lock,
   HelpCircle,
   FilePlus,
-  DollarSign
+  DollarSign,
+  Folder,
+  FolderOpen
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -213,6 +215,55 @@ const TestimonialsSection = () => {
               <div className="text-xs text-gray-500 mt-1">Privasi selalu kami jaga</div>
             </div>
           </div>
+        </div>
+
+        {/* Portofolio Folders */}
+        <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-20 relative z-10 border border-gray-100">
+          <h4 className="text-2xl font-bold text-[#1E293B] mb-6 flex items-center gap-2">
+            <Folder className="text-primary" /> Arsip Portofolio Joki Klien
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+             {/* 2023 */}
+             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary/30 transition-colors group">
+               <div className="flex justify-between items-start mb-4">
+                 <FolderOpen className="text-yellow-400 fill-yellow-400/20 w-10 h-10 group-hover:scale-110 transition-transform" />
+                 <span className="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded-md">2023</span>
+               </div>
+               <div className="font-bold text-lg text-[#1E293B] mb-1">Batch 2023</div>
+               <div className="text-gray-500 text-sm">2 Klien Sukses</div>
+             </div>
+             {/* 2024 */}
+             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary/30 transition-colors group">
+               <div className="flex justify-between items-start mb-4">
+                 <FolderOpen className="text-yellow-400 fill-yellow-400/20 w-10 h-10 group-hover:scale-110 transition-transform" />
+                 <span className="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded-md">2024</span>
+               </div>
+               <div className="font-bold text-lg text-[#1E293B] mb-1">Batch 2024</div>
+               <div className="text-gray-500 text-sm">42 Klien Sukses</div>
+             </div>
+             {/* 2025 */}
+             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary/30 transition-colors group">
+               <div className="flex justify-between items-start mb-4">
+                 <FolderOpen className="text-yellow-400 fill-yellow-400/20 w-10 h-10 group-hover:scale-110 transition-transform" />
+                 <span className="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded-md">2025</span>
+               </div>
+               <div className="font-bold text-lg text-[#1E293B] mb-1">Batch 2025</div>
+               <div className="text-gray-500 text-sm">33 Klien Sukses</div>
+             </div>
+             {/* 2026 */}
+             <div className="bg-blue-50/50 rounded-2xl p-6 border border-blue-100 hover:border-primary/30 transition-colors group relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-full -z-10 group-hover:bg-primary/20 transition-colors"></div>
+               <div className="flex justify-between items-start mb-4 relative z-10">
+                 <FolderOpen className="text-primary fill-primary/20 w-10 h-10 group-hover:scale-110 transition-transform animate-pulse" />
+                 <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded-md">2026</span>
+               </div>
+               <div className="font-bold text-lg text-[#1E293B] mb-1 relative z-10">Batch 2026</div>
+               <div className="text-primary font-bold text-sm relative z-10">GASSS!! 🚀</div>
+             </div>
+          </div>
+          <p className="text-xs text-gray-400 mt-6 text-center">
+            * Seluruh data file tugas/laporan klien disimpan dengan sistem keamanan tinggi. Identitas dan privasi dijaga 100% aman dan rahasia.
+          </p>
         </div>
 
         {/* Apa Kata Mereka Header */}
