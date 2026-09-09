@@ -98,51 +98,55 @@ const HeroTypingText = () => {
 
 const TestimonialsSection = () => {
   const [filter, setFilter] = React.useState('Semua');
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   const testimonials = [
-    {
-      category: "Laporan PKL",
-      content: "Kak, makasih banyak ya! Laporan PKL aku langsung di ACC pembimbing tanpa revisi. Payment pelunasan 50k udah aku transfer ke Dana ya kak 🙏",
-      rating: 5,
-      id: 1
-    },
-    {
-      category: "Laporan PKL",
-      content: "Wah gila sih, rapi banget sampe ke daftar isi dan halamannya. Harga pelajar banget tapi kualitas dewa. Udah lunas ya kak paymentnya mantap!",
-      rating: 5,
-      id: 2
-    },
-    {
-      category: "Makalah",
-      content: "Gila cepet banget sehari jadi! Bahasanya juga rapi gak ketahuan kalau dijokiin. Makasih kak, next time aku order lagi buat tugas akhir. Cek mutasi ya kak udah lunas.",
-      rating: 5,
-      id: 3
-    },
-    {
-      category: "PPT",
-      content: "PPT nya aesthetic parah, transisinya smooth. Ujian praktekku lancar jaya. Makasih kak, payment udah done ya via Gopay.",
-      rating: 5,
-      id: 4
-    },
-    {
-      category: "Proposal",
-      content: "Adminnya ramah banget diajak konsul malem-malem. Proposal usahaku dapet nilai A! Uang jasa udah aku tf ke BCA ya kak, cek aja.",
-      rating: 5,
-      id: 5
-    },
-    {
-      category: "Laporan PKL",
-      content: "Penyelamat deadline mepet! Tinggal 2 jam lagi dikumpul tapi belum nyentuh, untung nemu JokiLaporan. Makasih kak udah masuk paymentnya.",
-      rating: 5,
-      id: 6
-    }
+    { category: "Laporan PKL", content: "Gokil sih kak! Laporan PKL gue beres dalam semalam. Typo zero, format rapi bgt. Dosen pembimbing sampe speechless. Payment lunas via Dana ya kak! 🔥", rating: 5, id: 1 },
+    { category: "Laporan PKL", content: "Sat set banget pelayanannya! Awalnya overthinking takut ketahuan, ternyata bahasanya natural bgt kek ngetik sendiri. Lunas ya kak pelunasannya via Gopay.", rating: 5, id: 2 },
+    { category: "Laporan PKL", content: "Penyelamat hidup pas lagi mepet deadline. Gak nyampe 24 jam udah dikirim draftnya. Mantap pol! Transferan sisa udah beres ya kak.", rating: 5, id: 3 },
+    { category: "Laporan PKL", content: "Laporan magang kelar tanpa pusing mikirin bab 4! Analisanya dapet banget. Worth every penny lah pokoknya. Udah trf via Dana kak 🙏", rating: 5, id: 4 },
+
+    { category: "Makalah", content: "Valid no debat, ini joki paling worth it! Makalah kelompok gue dapet A. Adminnya fast respon abis. Makasih kak, mutasi BCA udah masuk ya.", rating: 5, id: 5 },
+    { category: "Makalah", content: "Effortless dapet nilai bagus berkat JokiLaporan. Makalahnya runtut dan daftar pustakanya valid semua. Makasih kak, TF Bank Jago udah masuk ya.", rating: 5, id: 6 },
+    { category: "Makalah", content: "Tugas sejarah kelar sekejap mata. Isinya berbobot gak cuma copas Wikipedia. Best service ever! Cek mutasi Mandiri ya kak udah transfer.", rating: 5, id: 7 },
+    { category: "Makalah", content: "Gila cepet banget sehari jadi! Bahasanya juga rapi gak ketahuan kalau dijokiin. Makasih kak, next time aku order lagi buat tugas akhir. Cek mutasi ya kak udah lunas.", rating: 5, id: 8 },
+
+    { category: "Proposal", content: "Proposal usaha buat ujian praktek langsung di-ACC dong! Bahasanya bener-bener pro tapi tetep masuk akal buat anak SMK. Lunas ya kak via ShopeePay.", rating: 5, id: 9 },
+    { category: "Proposal", content: "Revisi dikerjain cepet banget, adminnya sabar parah ngadepin gue yg bawel. Proposal kelar, hati tenang. Udah ku TF ya kak pelunasannya.", rating: 5, id: 10 },
+    { category: "Proposal", content: "Adminnya ramah banget diajak konsul malem-malem. Proposal usahaku dapet nilai A! Uang jasa udah aku tf ke BCA ya kak, cek aja.", rating: 5, id: 11 },
+    { category: "Proposal", content: "Gak nyangka proposal PKWU dapet pujian dari guru. Ide bisnisnya dikembangin makin keren. Makasih banyak kak, udah lunas ya paymentnya.", rating: 5, id: 12 },
+
+    { category: "PPT", content: "PPT nya nyala abis bangku! 😭 Transisinya smooth, desainnya ga norak. Guruku nanya pake template apa wkwk. Payment OVO udah meluncur kak.", rating: 5, id: 13 },
+    { category: "PPT", content: "Sumpah PPT-nya cakep parah, aesthetic ala-ala Pinterest gitu. Presentasi jadi makin pede. Harga pas di kantong pelajar. Done payment ya kak!", rating: 5, id: 14 },
+    { category: "PPT", content: "Keren pol! Animasi dan fontnya pas, gak lebay. Langsung siap presentasi besok. Thank you JokiLaporan, payment udah masuk OVO ya.", rating: 5, id: 15 },
+    { category: "PPT", content: "Beneran dibikin interaktif! Gak ngebosenin sumpah, temen-temen sekelas pada nanya bikin di mana. Lunas ya kak payment via Dana.", rating: 5, id: 16 }
   ];
 
   const filteredTestimonials = filter === 'Semua' ? testimonials : testimonials.filter(t => t.category === filter);
+  
+  // Slider Logic
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(filteredTestimonials.length / itemsPerPage);
+
+  React.useEffect(() => {
+    setActiveIndex(0);
+  }, [filter]);
+
+  React.useEffect(() => {
+    if (totalPages <= 1) return;
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % totalPages);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [totalPages, activeIndex]);
+
+  const handleDotClick = (index) => {
+    setActiveIndex(index);
+  };
 
   return (
-    <section id="testimoni" className="py-20 bg-[#F4F7FF] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimoni" className="py-20 bg-[#F4F7FF] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
@@ -217,7 +221,6 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-
         {/* Apa Kata Mereka Header */}
         <div className="mb-10">
           <span className="inline-flex items-center gap-2 bg-blue-100 text-primary font-bold px-4 py-2 rounded-full text-xs tracking-wide mb-4">
@@ -242,58 +245,76 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Grid Cards */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
-            {filteredTestimonials.map((testi) => (
-              <motion.div 
-                key={testi.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white border border-gray-100 p-8 rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] relative flex flex-col h-full group"
-              >
-                {/* Dots Icon */}
-                <div className="absolute top-8 right-8 text-gray-300">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
-                  </svg>
-                </div>
-                
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center shadow-inner shrink-0">
-                    <User size={24} />
+        {/* Grid Cards with Slider */}
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={activeIndex + filter}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filteredTestimonials.slice(activeIndex * itemsPerPage, (activeIndex + 1) * itemsPerPage).map((testi) => (
+                <div 
+                  key={testi.id}
+                  className="bg-white border border-gray-100 p-8 rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] relative flex flex-col h-full group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  {/* Dots Icon */}
+                  <div className="absolute top-8 right-8 text-gray-300">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
+                    </svg>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-[#1E293B]">Siswa SMK</h4>
-                    <p className="text-xs text-green-500 font-medium flex items-center gap-1"><ShieldCheck size={12}/> Privasi Terjaga</p>
+                  
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center shadow-inner shrink-0">
+                      <User size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#1E293B]">Siswa SMK</h4>
+                      <p className="text-xs text-green-500 font-medium flex items-center gap-1"><ShieldCheck size={12}/> Privasi Terjaga</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(testi.rating)].map((_, i) => (
+                      <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+
+                  <p className="text-gray-600 relative z-10 leading-relaxed flex-1 font-medium">"{testi.content}"</p>
+
+                  {/* Big Quote Icon */}
+                  <div className="absolute bottom-6 right-6 text-blue-100 opacity-60">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.604C16.657 13.984 16.897 13.404 17.137 12.864C17.377 12.324 17.597 11.844 17.797 11.424C17.997 11.004 18.177 10.664 18.337 10.404C18.497 10.144 18.657 9.984 18.817 9.924H14.017V3H21.017V9.924C21.017 11.524 20.677 13.204 19.997 14.964C19.317 16.724 18.417 18.734 17.297 21H14.017ZM3.017 21L5.417 14.604C5.657 13.984 5.897 13.404 6.137 12.864C6.377 12.324 6.597 11.844 6.797 11.424C6.997 11.004 7.177 10.664 7.337 10.404C7.497 10.144 7.657 9.984 7.817 9.924H3.017V3H10.017V9.924C10.017 11.524 9.677 13.204 8.997 14.964C8.317 16.724 7.417 18.734 6.297 21H3.017Z" />
+                    </svg>
                   </div>
                 </div>
-
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testi.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-
-                <p className="text-gray-600 relative z-10 leading-relaxed flex-1 font-medium">"{testi.content}"</p>
-
-                {/* Big Quote Icon */}
-                <div className="absolute bottom-6 right-6 text-blue-100 opacity-60">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.017 21L16.417 14.604C16.657 13.984 16.897 13.404 17.137 12.864C17.377 12.324 17.597 11.844 17.797 11.424C17.997 11.004 18.177 10.664 18.337 10.404C18.497 10.144 18.657 9.984 18.817 9.924H14.017V3H21.017V9.924C21.017 11.524 20.677 13.204 19.997 14.964C19.317 16.724 18.417 18.734 17.297 21H14.017ZM3.017 21L5.417 14.604C5.657 13.984 5.897 13.404 6.137 12.864C6.377 12.324 6.597 11.844 6.797 11.424C6.997 11.004 7.177 10.664 7.337 10.404C7.497 10.144 7.657 9.984 7.817 9.924H3.017V3H10.017V9.924C10.017 11.524 9.677 13.204 8.997 14.964C8.317 16.724 7.417 18.734 6.297 21H3.017Z" />
-                  </svg>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </AnimatePresence>
-        </motion.div>
+
+          {/* Pagination Indicators */}
+          {totalPages > 1 && (
+            <div className="flex justify-center gap-2 mt-10">
+              {[...Array(totalPages)].map((_, i) => (
+                <button 
+                  key={i} 
+                  onClick={() => handleDotClick(i)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === i ? 'bg-primary w-8' : 'bg-blue-200 hover:bg-blue-300'}`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
-}
+};
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
