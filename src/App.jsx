@@ -208,9 +208,9 @@ function App() {
                 </a>
               </div>
 
-              <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-light transition-all shadow-md hover:shadow-primary/40 ml-2">
+              <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-light transition-all shadow-md hover:shadow-primary/40 ml-2 inline-block">
                 Order Sekarang
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -240,9 +240,9 @@ function App() {
               </a>
             </div>
 
-            <button className="w-full bg-primary text-white px-6 py-3 rounded-full font-semibold mt-4">
+            <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="block text-center w-full bg-primary text-white px-6 py-3 rounded-full font-semibold mt-4">
               Order Sekarang
-            </button>
+            </a>
           </div>
         )}
       </nav>
@@ -279,9 +279,9 @@ function App() {
             </motion.div>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-              <button className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
+              <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
                 Order Sekarang <ChevronRight size={24} />
-              </button>
+              </a>
               <button className="w-full sm:w-auto btn-secondary bg-white/80 backdrop-blur-md border border-white shadow-md px-8 py-4 text-lg">
                 Lihat Daftar Harga
               </button>
