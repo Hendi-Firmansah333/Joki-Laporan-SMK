@@ -630,28 +630,34 @@ function App() {
       <FAQSection />
 
       {/* CTA Banner */}
-      <section className="py-10 px-4">
-        <div className="max-w-6xl mx-auto relative overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.15)] rounded-[2.5rem] md:rounded-[3rem] group">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center md:bg-[center_top] z-0 transition-transform duration-700 group-hover:scale-105" 
-            style={{ backgroundImage: `url(${ctaBannerImg})` }}
-          ></div>
-          {/* Dark gradient overlay so text is popping out */}
-          <div className="absolute inset-0 bg-black/30 md:bg-transparent md:bg-gradient-to-b md:from-black/10 md:via-transparent md:to-black/30 z-0"></div>
+      <section className="py-10 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto relative group flex justify-center">
+          {/* Full Image */}
+          <img 
+            src={ctaBannerImg} 
+            alt="Konsultasi Joki Laporan" 
+            className="w-full h-auto rounded-[1rem] md:rounded-[3rem] shadow-[0_20px_50px_rgb(0,0,0,0.15)] object-cover"
+          />
           
-          <div className="relative z-10 flex flex-col items-center justify-center p-8 md:p-16 min-h-[350px] md:min-h-[400px]">
-             <div className="text-white text-center flex flex-col items-center max-w-xl mx-auto bg-black/20 md:bg-black/10 p-6 md:p-10 rounded-3xl backdrop-blur-sm border border-white/20 shadow-2xl">
-               <h2 className="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Masih Bingung?</h2>
-               <h3 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Konsultasi Dulu Aja!</h3>
-               <p className="text-gray-100 mb-8 font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] text-sm md:text-base">Tim kami siap membantu kamu 24/7. Tanya gratis, gak ada ruginya!</p>
-               <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                 <button className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 shadow-[0_10px_20px_rgba(34,197,94,0.3)] w-full sm:w-auto text-sm md:text-base">
-                   <MessageCircle size={22} /> Chat via WhatsApp
-                 </button>
-                 <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 shadow-[0_10px_20px_rgba(236,72,153,0.3)] w-full sm:w-auto text-sm md:text-base">
-                   <Camera size={22} /> DM Instagram
-                 </button>
+          {/* Absolute overlay for content in the exact center */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-8 text-center z-10 w-full h-full">
+             <div className="flex flex-col items-center w-[55%] sm:w-[50%] md:w-[45%] lg:w-[40%] text-center">
+               <h2 className="text-[12px] sm:text-2xl md:text-3xl lg:text-5xl font-extrabold mb-1 sm:mb-2 md:mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] leading-tight">
+                 Masih Bingung?
+               </h2>
+               <h3 className="text-[10px] sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 md:mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] leading-tight">
+                 Konsultasi Dulu Aja!
+               </h3>
+               <p className="text-[8px] sm:text-xs md:text-sm lg:text-lg text-gray-50 mb-2 sm:mb-4 md:mb-8 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] leading-tight">
+                 Tim kami siap membantu kamu 24/7. Tanya gratis, gak ada ruginya!
+               </p>
+               <div className="flex flex-row gap-1 sm:gap-2 md:gap-4 justify-center w-full">
+                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 md:gap-2 bg-green-500 hover:bg-green-600 text-white px-2 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-4 rounded-full font-bold transition-all hover:scale-105 shadow-[0_4px_10px_rgba(34,197,94,0.4)] text-[8px] sm:text-xs md:text-base whitespace-nowrap flex-1">
+                   <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6" /> Chat <span className="hidden sm:inline">via WhatsApp</span><span className="sm:hidden">WA</span>
+                 </a>
+                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 md:gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-2 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-4 rounded-full font-bold transition-all hover:scale-105 shadow-[0_4px_10px_rgba(236,72,153,0.4)] text-[8px] sm:text-xs md:text-base whitespace-nowrap flex-1">
+                   <Camera className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6" /> DM <span className="hidden sm:inline">Instagram</span><span className="sm:hidden">IG</span>
+                 </a>
                </div>
              </div>
           </div>
