@@ -39,14 +39,10 @@ const HeroTypingText = () => {
 
   const fullLine1 = "Joki Laporan";
   const fullLine2 = "Solusi Tugas,";
-  const line3Words = ["Bukan Drama!", "Pasti Beres!", "Bebas Pusing!", "Nilai Maksimal!"];
+  const fullLine3 = "Bukan Drama!";
 
   React.useEffect(() => {
     let currentLine = 1;
-    let wordIndex = 0;
-    let isDeleting = false;
-    let text3 = "";
-
     let timeout;
 
     const type = () => {
@@ -57,7 +53,7 @@ const HeroTypingText = () => {
             currentLine = 2;
             timeout = setTimeout(type, 500); 
           } else {
-            timeout = setTimeout(type, 120);
+            timeout = setTimeout(type, 150);
           }
           return next;
         });
@@ -68,35 +64,18 @@ const HeroTypingText = () => {
             currentLine = 3;
             timeout = setTimeout(type, 500); 
           } else {
-            timeout = setTimeout(type, 120);
+            timeout = setTimeout(type, 150);
           }
           return next;
         });
       } else if (currentLine === 3) {
-        const targetWord = line3Words[wordIndex];
-        
-        if (!isDeleting) {
-          text3 = targetWord.substring(0, text3.length + 1);
-          setLine3(text3);
-          
-          if (text3 === targetWord) {
-            isDeleting = true;
-            timeout = setTimeout(type, 2500); // Pause before deleting
-          } else {
-            timeout = setTimeout(type, 120); // Typing speed
+        setLine3((prev) => {
+          const next = fullLine3.substring(0, prev.length + 1);
+          if (next !== fullLine3) {
+            timeout = setTimeout(type, 150);
           }
-        } else {
-          text3 = targetWord.substring(0, text3.length - 1);
-          setLine3(text3);
-          
-          if (text3 === "") {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % line3Words.length;
-            timeout = setTimeout(type, 600); // Pause before typing new word
-          } else {
-            timeout = setTimeout(type, 60); // Deleting speed
-          }
-        }
+          return next;
+        });
       }
     };
 
@@ -117,7 +96,7 @@ const HeroTypingText = () => {
       </span>
       <br/>
       <span className="relative inline-block">
-        <span className="opacity-0">{line3Words.reduce((a, b) => a.length > b.length ? a : b)}</span>
+        <span className="opacity-0">{fullLine3}</span>
         <span className="absolute left-0 top-0 whitespace-nowrap">{line3}</span>
       </span>
       <motion.span 
