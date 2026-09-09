@@ -24,7 +24,8 @@ import {
   Lock,
   HelpCircle,
   FilePlus,
-  DollarSign
+  DollarSign,
+  Instagram
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -179,7 +180,17 @@ function App() {
               <a href="#cara-order" className="text-secondary hover:text-primary font-medium transition-colors">Cara Order</a>
               <a href="#testimoni" className="text-secondary hover:text-primary font-medium transition-colors">Testimoni</a>
               <a href="#FAQ" className="text-secondary hover:text-primary font-medium transition-colors">FAQ</a>
-              <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-light transition-all shadow-md hover:shadow-primary/40">
+              
+              <div className="flex items-center gap-3 border-l pl-6 border-gray-200">
+                <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-500 transition-colors" title="Hubungi via WhatsApp">
+                  <MessageCircle size={22} />
+                </a>
+                <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors" title="Ikuti kami di Instagram">
+                  <Instagram size={22} />
+                </a>
+              </div>
+
+              <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-light transition-all shadow-md hover:shadow-primary/40 ml-2">
                 Order Sekarang
               </button>
             </div>
@@ -201,6 +212,16 @@ function App() {
             <a href="#cara-order" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">Cara Order</a>
             <a href="#testimoni" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">Testimoni</a>
             <a href="#FAQ" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">FAQ</a>
+            
+            <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+              <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-green-50 text-green-500 rounded-full flex items-center justify-center shadow-sm">
+                <MessageCircle size={20} />
+              </a>
+              <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-pink-50 text-pink-500 rounded-full flex items-center justify-center shadow-sm">
+                <Instagram size={20} />
+              </a>
+            </div>
+
             <button className="w-full bg-primary text-white px-6 py-3 rounded-full font-semibold mt-4">
               Order Sekarang
             </button>
