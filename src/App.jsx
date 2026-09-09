@@ -639,37 +639,34 @@ function App() {
             className="w-full h-auto rounded-[1rem] md:rounded-[3rem] shadow-[0_20px_50px_rgb(0,0,0,0.15)] object-cover"
           />
           
-          {/* Absolute overlay for content in the exact center */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none">
-             {/* Container shifted slightly right to balance anime boy, width increased to fit text on one line */}
-             <div className="flex flex-col items-center w-[90%] sm:w-[85%] md:w-[75%] lg:w-[65%] text-center pointer-events-auto pl-[12%] sm:pl-[15%] md:pl-[18%] pb-[2%]">
-               <h2 className="text-[12px] sm:text-lg md:text-2xl lg:text-3xl xl:text-[40px] font-extrabold mb-0.5 sm:mb-2 md:mb-3 text-white drop-shadow-md leading-tight whitespace-nowrap">
+          {/* Absolute overlay for content perfectly centered in the blue space */}
+          <div className="absolute inset-y-0 left-[30%] sm:left-[28%] md:left-[26%] right-[15%] sm:right-[16%] md:right-[18%] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+             <div className="flex flex-col items-center w-full max-w-3xl text-center pointer-events-auto">
+               <h2 className="text-[10px] sm:text-sm md:text-lg lg:text-2xl xl:text-3xl font-extrabold mb-0.5 sm:mb-1 md:mb-2 text-white drop-shadow-md leading-tight whitespace-nowrap">
                  Masih Bingung? Konsultasi <span className="text-[#00ffff]">Dulu Aja!</span>
                </h2>
-               <p className="text-[7px] sm:text-[10px] md:text-sm lg:text-base xl:text-lg text-gray-100 mb-2 sm:mb-3 md:mb-6 font-medium drop-shadow leading-snug">
+               <p className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-sm xl:text-base text-gray-100 mb-1.5 sm:mb-2 md:mb-4 font-medium drop-shadow leading-snug">
                  Tim kami siap membantu kamu <span className="text-[#00ffff] font-bold">24/7. Tanya gratis,</span> gak ada ruginya!
                </p>
-               <div className="flex flex-row gap-1.5 sm:gap-3 md:gap-5 lg:gap-6 justify-center w-full max-w-[90%] sm:max-w-[85%]">
-                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-1.5 sm:gap-2 md:gap-4 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-2 sm:px-4 md:px-6 lg:px-8 py-1 sm:py-2 md:py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-green-500/30 border border-green-400/50 flex-1 min-w-0">
-                   <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 truncate">
-                     <div className="bg-white text-green-500 rounded-full p-0.5 sm:p-1 md:p-1.5 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 flex items-center justify-center shrink-0 shadow-sm">
-                       <MessageCircle className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="currentColor" />
+               <div className="flex flex-row gap-1 sm:gap-2 md:gap-3 lg:gap-4 justify-center w-full">
+                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-1.5 sm:px-2 md:px-4 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-green-400/50 flex-1">
+                   <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+                     <div className="bg-white text-green-500 rounded-full p-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 flex items-center justify-center shrink-0">
+                       <MessageCircle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" fill="currentColor" />
                      </div>
-                     <span className="text-[6px] sm:text-[9px] md:text-xs lg:text-base xl:text-lg text-left truncate">Chat via WhatsApp</span>
+                     <span className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-xs xl:text-sm text-left whitespace-nowrap">Chat via WhatsApp</span>
                    </div>
-                   <ChevronRight className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 opacity-80 shrink-0" />
                  </a>
-                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-1.5 sm:gap-2 md:gap-4 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-2 sm:px-4 md:px-6 lg:px-8 py-1 sm:py-2 md:py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-pink-500/30 border border-white/20 flex-1 min-w-0">
-                   <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 truncate">
-                     <div className="bg-white text-[#dc2743] rounded-full p-0.5 sm:p-1 md:p-1.5 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 flex items-center justify-center shrink-0 shadow-sm">
-                       <InstagramIcon className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-1.5 sm:px-2 md:px-4 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-white/20 flex-1">
+                   <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+                     <div className="bg-white text-[#dc2743] rounded-full p-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 flex items-center justify-center shrink-0">
+                       <InstagramIcon className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" />
                      </div>
-                     <div className="text-left leading-tight truncate">
-                       <div className="text-[6px] sm:text-[9px] md:text-xs lg:text-base xl:text-lg">DM Instagram</div>
-                       <div className="text-[4px] sm:text-[6px] md:text-[9px] lg:text-xs font-normal opacity-90 truncate">@jokikuy.laporanpkl</div>
+                     <div className="text-left leading-tight whitespace-nowrap">
+                       <div className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-xs xl:text-sm">DM Instagram</div>
+                       <div className="text-[4px] sm:text-[4px] md:text-[6px] lg:text-[9px] xl:text-[10px] font-normal opacity-90">@jokikuy.laporanpkl</div>
                      </div>
                    </div>
-                   <ChevronRight className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 opacity-80 shrink-0" />
                  </a>
                </div>
              </div>
