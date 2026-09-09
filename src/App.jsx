@@ -55,9 +55,9 @@ const HeroTypingText = () => {
           const next = fullLine1.substring(0, prev.length + 1);
           if (next === fullLine1) {
             currentLine = 2;
-            timeout = setTimeout(type, 200); 
+            timeout = setTimeout(type, 500); 
           } else {
-            timeout = setTimeout(type, 50);
+            timeout = setTimeout(type, 120);
           }
           return next;
         });
@@ -66,9 +66,9 @@ const HeroTypingText = () => {
           const next = fullLine2.substring(0, prev.length + 1);
           if (next === fullLine2) {
             currentLine = 3;
-            timeout = setTimeout(type, 200); 
+            timeout = setTimeout(type, 500); 
           } else {
-            timeout = setTimeout(type, 50);
+            timeout = setTimeout(type, 120);
           }
           return next;
         });
@@ -81,9 +81,9 @@ const HeroTypingText = () => {
           
           if (text3 === targetWord) {
             isDeleting = true;
-            timeout = setTimeout(type, 2000); // Pause before deleting
+            timeout = setTimeout(type, 2500); // Pause before deleting
           } else {
-            timeout = setTimeout(type, 50); // Typing speed
+            timeout = setTimeout(type, 120); // Typing speed
           }
         } else {
           text3 = targetWord.substring(0, text3.length - 1);
@@ -92,15 +92,15 @@ const HeroTypingText = () => {
           if (text3 === "") {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % line3Words.length;
-            timeout = setTimeout(type, 300); // Pause before typing new word
+            timeout = setTimeout(type, 600); // Pause before typing new word
           } else {
-            timeout = setTimeout(type, 30); // Deleting speed
+            timeout = setTimeout(type, 60); // Deleting speed
           }
         }
       }
     };
 
-    timeout = setTimeout(type, 500); 
+    timeout = setTimeout(type, 800); 
     return () => clearTimeout(timeout);
   }, []);
 
