@@ -39,13 +39,17 @@ const HeroTypingText = () => {
   React.useEffect(() => {
     const typed = new Typed(el.current, {
       strings: [
-        "Joki Laporan <br/> <span class='text-primary'>Solusi Tugas,</span><br/> Bukan Drama!"
+        "Bukan Drama!",
+        "Pasti Beres!",
+        "Bebas Pusing!",
+        "Nilai Maksimal!"
       ],
-      typeSpeed: 60,
+      typeSpeed: 80,
+      backSpeed: 40,
+      backDelay: 2000,
       showCursor: true,
       cursorChar: '|',
-      loop: false,
-      contentType: 'html',
+      loop: true,
     });
 
     return () => {
@@ -55,6 +59,8 @@ const HeroTypingText = () => {
 
   return (
     <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary min-h-[140px] lg:min-h-[200px]">
+      Joki Laporan <br/>
+      <span className="text-primary">Solusi Tugas,</span><br/>
       <span ref={el}></span>
     </motion.h1>
   );
