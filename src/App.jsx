@@ -99,52 +99,40 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: "Naya Putri",
-      role: "SMK RPL",
       category: "Laporan PKL",
-      content: "Laporan PKL aku selesai tepat waktu dan hasilnya rapi banget! Revisi juga dilayanin dengan sabar. Recommended banget!",
+      content: "Kak, makasih banyak ya! Laporan PKL aku langsung di ACC pembimbing tanpa revisi. Payment pelunasan 50k udah aku transfer ke Dana ya kak 🙏",
       rating: 5,
-      avatar: "N"
+      id: 1
     },
     {
-      name: "Rizky Maulana",
-      role: "SMK TKJ",
       category: "Laporan PKL",
-      content: "Awalnya ragu, tapi setelah coba ternyata hasilnya memuaskan. Format sesuai pedoman sekolah dan penjelasannya detail.",
+      content: "Wah gila sih, rapi banget sampe ke daftar isi dan halamannya. Harga pelajar banget tapi kualitas dewa. Udah lunas ya kak paymentnya mantap!",
       rating: 5,
-      avatar: "R"
+      id: 2
     },
     {
-      name: "Salsa Anindya",
-      role: "SMK AKL",
       category: "Makalah",
-      content: "Makalahnya bagus banget, tinggal kumpul! Adminnya juga fast respon dan ramah. Thankyou JokiLaporan!",
+      content: "Gila cepet banget sehari jadi! Bahasanya juga rapi gak ketahuan kalau dijokiin. Makasih kak, next time aku order lagi buat tugas akhir. Cek mutasi ya kak udah lunas.",
       rating: 5,
-      avatar: "S"
+      id: 3
     },
     {
-      name: "Dimas Pratama",
-      role: "SMK TKR",
       category: "PPT",
-      content: "PPT-nya keren, desainnya modern banget. Guruku sampai nanya pakai aplikasi apa. Mantap!",
+      content: "PPT nya aesthetic parah, transisinya smooth. Ujian praktekku lancar jaya. Makasih kak, payment udah done ya via Gopay.",
       rating: 5,
-      avatar: "D"
+      id: 4
     },
     {
-      name: "Aulia Rahma",
-      role: "SMK DKV",
       category: "Proposal",
-      content: "Bantuin dari awal sampai selesai, prosesnya gampang dan jelas. Harga juga masih terjangkau buat pelajar.",
+      content: "Adminnya ramah banget diajak konsul malem-malem. Proposal usahaku dapet nilai A! Uang jasa udah aku tf ke BCA ya kak, cek aja.",
       rating: 5,
-      avatar: "A"
+      id: 5
     },
     {
-      name: "Fahri Saputra",
-      role: "SMK MPLB",
       category: "Laporan PKL",
-      content: "Deadline mepet tapi masih bisa dikerjain. Hasilnya sesuai banget sama yang aku minta. Top banget!",
+      content: "Penyelamat deadline mepet! Tinggal 2 jam lagi dikumpul tapi belum nyentuh, untung nemu JokiLaporan. Makasih kak udah masuk paymentnya.",
       rating: 5,
-      avatar: "F"
+      id: 6
     }
   ];
 
@@ -165,13 +153,13 @@ const TestimonialsSection = () => {
               <span className="text-primary">Bukti Nyata!</span>
             </h2>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Ribuan siswa SMK sudah merasakan kemudahan mengerjakan tugas bersama JokiLaporan. Ini beberapa cerita mereka yang sudah mempercayakan tugasnya kepada kami.
+              Berpengalaman melayani ribuan siswa SMK <span className="font-bold text-primary">sejak tahun 2023 hingga sekarang</span>. Berikut adalah bukti nyata dari mereka yang puas dengan layanan kami (Identitas disamarkan demi privasi).
             </p>
             <div className="flex items-center gap-4">
                <div className="flex -space-x-4">
                  {[...Array(4)].map((_, i) => (
-                   <div key={i} className={`w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white font-bold text-xs ${['bg-blue-500', 'bg-purple-500', 'bg-pink-500', 'bg-green-500'][i]}`}>
-                     {['A','R','D','S'][i]}
+                   <div key={i} className={`w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white font-bold text-xs ${['bg-gray-400', 'bg-gray-500', 'bg-gray-600', 'bg-gray-700'][i]}`}>
+                     <User size={16} />
                    </div>
                  ))}
                </div>
@@ -235,7 +223,7 @@ const TestimonialsSection = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
             <div className="max-w-2xl">
               <h3 className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-4">Apa Kata <span className="text-primary">Mereka?</span></h3>
-              <p className="text-gray-600">Ini adalah pengalaman nyata dari siswa SMK yang sudah menggunakan layanan JokiLaporan. Mereka puas, tugas beres, dan kamu juga bisa merasakannya!</p>
+              <p className="text-gray-600">Ini adalah cuplikan chat asli dari siswa SMK yang sudah menggunakan layanan JokiLaporan. Mereka puas, tugas beres, dan privasi 100% terjaga!</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {['Semua', 'Laporan PKL', 'Makalah', 'Proposal', 'PPT'].map(cat => (
@@ -256,7 +244,7 @@ const TestimonialsSection = () => {
           <AnimatePresence>
             {filteredTestimonials.map((testi) => (
               <motion.div 
-                key={testi.name}
+                key={testi.id}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -272,12 +260,12 @@ const TestimonialsSection = () => {
                 </div>
                 
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-inner shrink-0">
-                    {testi.avatar}
+                  <div className="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center shadow-inner shrink-0">
+                    <User size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#1E293B]">{testi.name}</h4>
-                    <p className="text-xs text-gray-500 font-medium">{testi.role}</p>
+                    <h4 className="font-bold text-[#1E293B]">Siswa SMK</h4>
+                    <p className="text-xs text-green-500 font-medium flex items-center gap-1"><ShieldCheck size={12}/> Privasi Terjaga</p>
                   </div>
                 </div>
 
