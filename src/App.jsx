@@ -26,7 +26,8 @@ import {
   FilePlus,
   DollarSign,
   Folder,
-  FolderOpen
+  FolderOpen,
+  Instagram
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -631,15 +632,48 @@ function App() {
 
       {/* CTA Banner */}
       <section className="py-10 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex justify-center">
-          {/* Full Image Only */}
-          <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="w-full transition-transform hover:scale-[1.02] cursor-pointer">
-            <img 
-              src={ctaBannerImg} 
-              alt="Konsultasi Joki Laporan" 
-              className="w-full h-auto rounded-[1rem] md:rounded-[3rem] shadow-[0_20px_50px_rgb(0,0,0,0.15)] object-cover"
-            />
-          </a>
+        <div className="max-w-7xl mx-auto relative flex justify-center">
+          {/* Full Image */}
+          <img 
+            src={ctaBannerImg} 
+            alt="Konsultasi Joki Laporan" 
+            className="w-full h-auto rounded-[1rem] md:rounded-[3rem] shadow-[0_20px_50px_rgb(0,0,0,0.15)] object-cover"
+          />
+          
+          {/* Absolute overlay for content in the exact center */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-8 text-center z-10 pointer-events-none">
+             <div className="flex flex-col items-center w-[65%] sm:w-[55%] md:w-[50%] lg:w-[48%] xl:w-[45%] text-center pointer-events-auto">
+               <h2 className="text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[42px] font-extrabold mb-1 sm:mb-2 text-white drop-shadow-md leading-tight">
+                 Masih Bingung? Konsultasi <span className="text-[#00ffff]">Dulu Aja!</span>
+               </h2>
+               <p className="text-[8px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 mb-2 sm:mb-4 md:mb-6 lg:mb-8 font-medium drop-shadow leading-snug">
+                 Tim kami siap membantu kamu <span className="text-[#00ffff] font-bold">24/7. Tanya gratis,</span> gak ada ruginya!
+               </p>
+               <div className="flex flex-row gap-1 sm:gap-2 md:gap-4 lg:gap-6 justify-center w-full px-2 sm:px-0">
+                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-1 sm:gap-2 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-green-500/30 border border-green-400/50 flex-1 min-w-0">
+                   <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 truncate">
+                     <div className="bg-white text-green-500 rounded-full p-0.5 sm:p-1 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
+                       <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="currentColor" />
+                     </div>
+                     <span className="text-[7px] sm:text-[10px] md:text-sm lg:text-base text-left truncate">Chat via WhatsApp</span>
+                   </div>
+                   <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 opacity-80 shrink-0" />
+                 </a>
+                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-1 sm:gap-2 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-pink-500/30 border border-white/20 flex-1 min-w-0">
+                   <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 truncate">
+                     <div className="bg-white text-[#dc2743] rounded-full p-0.5 sm:p-1 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
+                       <Instagram className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                     </div>
+                     <div className="text-left leading-tight truncate">
+                       <div className="text-[7px] sm:text-[10px] md:text-sm lg:text-base">DM Instagram</div>
+                       <div className="text-[5px] sm:text-[8px] md:text-xs font-normal opacity-90 truncate">@jokikuy.laporanpkl</div>
+                     </div>
+                   </div>
+                   <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 opacity-80 shrink-0" />
+                 </a>
+               </div>
+             </div>
+          </div>
         </div>
       </section>
 
