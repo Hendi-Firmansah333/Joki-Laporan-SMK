@@ -639,8 +639,8 @@ function App() {
             className="w-full h-auto rounded-[1rem] md:rounded-[3rem] shadow-[0_20px_50px_rgb(0,0,0,0.15)] object-cover"
           />
           
-          {/* Absolute overlay for content perfectly centered in the blue space */}
-          <div className="absolute inset-y-0 left-[30%] sm:left-[28%] md:left-[26%] right-[15%] sm:right-[16%] md:right-[18%] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+          {/* Absolute overlay for content perfectly centered in the blue space, adjusted slightly down and right */}
+          <div className="absolute top-[4%] sm:top-[6%] bottom-0 left-[32%] sm:left-[30%] md:left-[28%] right-[13%] sm:right-[14%] md:right-[16%] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
              <div className="flex flex-col items-center w-full max-w-3xl text-center pointer-events-auto">
                <h2 className="text-[10px] sm:text-sm md:text-lg lg:text-2xl xl:text-3xl font-extrabold mb-0.5 sm:mb-1 md:mb-2 text-white drop-shadow-md leading-tight whitespace-nowrap">
                  Masih Bingung? Konsultasi <span className="text-[#00ffff]">Dulu Aja!</span>
