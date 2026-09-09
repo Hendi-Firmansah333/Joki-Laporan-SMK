@@ -24,8 +24,7 @@ import {
   Lock,
   HelpCircle,
   FilePlus,
-  DollarSign,
-  Instagram
+  DollarSign
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -42,6 +41,25 @@ const staggerContainer = {
     transition: { staggerChildren: 0.15 }
   }
 };
+
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
 
 const HeroTypingText = () => {
   const el = React.useRef(null);
@@ -186,7 +204,7 @@ function App() {
                   <MessageCircle size={22} />
                 </a>
                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors" title="Ikuti kami di Instagram">
-                  <Instagram size={22} />
+                  <InstagramIcon size={22} />
                 </a>
               </div>
 
@@ -218,7 +236,7 @@ function App() {
                 <MessageCircle size={20} />
               </a>
               <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-pink-50 text-pink-500 rounded-full flex items-center justify-center shadow-sm">
-                <Instagram size={20} />
+                <InstagramIcon size={20} />
               </a>
             </div>
 
