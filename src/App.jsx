@@ -26,8 +26,7 @@ import {
   FilePlus,
   DollarSign,
   Folder,
-  FolderOpen,
-  Instagram
+  FolderOpen
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -662,7 +661,7 @@ function App() {
                  <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-1 sm:gap-2 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-pink-500/30 border border-white/20 flex-1 min-w-0">
                    <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 truncate">
                      <div className="bg-white text-[#dc2743] rounded-full p-0.5 sm:p-1 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
-                       <Instagram className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                       <InstagramIcon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                      </div>
                      <div className="text-left leading-tight truncate">
                        <div className="text-[7px] sm:text-[10px] md:text-sm lg:text-base">DM Instagram</div>
