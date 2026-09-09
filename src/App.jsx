@@ -1,4 +1,5 @@
 import React from 'react';
+import Typed from 'typed.js';
 import { motion } from 'framer-motion';
 import { 
   ShieldCheck, 
@@ -33,77 +34,28 @@ const staggerContainer = {
 };
 
 const HeroTypingText = () => {
-  const [line1, setLine1] = React.useState('');
-  const [line2, setLine2] = React.useState('');
-  const [line3, setLine3] = React.useState('');
-
-  const fullLine1 = "Joki Laporan";
-  const fullLine2 = "Solusi Tugas,";
-  const fullLine3 = "Bukan Drama!";
+  const el = React.useRef(null);
 
   React.useEffect(() => {
-    let currentLine = 1;
-    let timeout;
+    const typed = new Typed(el.current, {
+      strings: [
+        "Joki Laporan <br/> <span class='text-primary'>Solusi Tugas,</span><br/> Bukan Drama!"
+      ],
+      typeSpeed: 60,
+      showCursor: true,
+      cursorChar: '|',
+      loop: false,
+      contentType: 'html',
+    });
 
-    const type = () => {
-      if (currentLine === 1) {
-        setLine1((prev) => {
-          const next = fullLine1.substring(0, prev.length + 1);
-          if (next === fullLine1) {
-            currentLine = 2;
-            timeout = setTimeout(type, 500); 
-          } else {
-            timeout = setTimeout(type, 150);
-          }
-          return next;
-        });
-      } else if (currentLine === 2) {
-        setLine2((prev) => {
-          const next = fullLine2.substring(0, prev.length + 1);
-          if (next === fullLine2) {
-            currentLine = 3;
-            timeout = setTimeout(type, 500); 
-          } else {
-            timeout = setTimeout(type, 150);
-          }
-          return next;
-        });
-      } else if (currentLine === 3) {
-        setLine3((prev) => {
-          const next = fullLine3.substring(0, prev.length + 1);
-          if (next !== fullLine3) {
-            timeout = setTimeout(type, 150);
-          }
-          return next;
-        });
-      }
+    return () => {
+      typed.destroy();
     };
-
-    timeout = setTimeout(type, 800); 
-    return () => clearTimeout(timeout);
   }, []);
 
   return (
     <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary min-h-[140px] lg:min-h-[200px]">
-      <span className="relative inline-block">
-        <span className="opacity-0">{fullLine1}</span>
-        <span className="absolute left-0 top-0 whitespace-nowrap">{line1}</span>
-      </span>
-      <br/>
-      <span className="text-primary relative inline-block">
-        <span className="opacity-0">{fullLine2}</span>
-        <span className="absolute left-0 top-0 whitespace-nowrap">{line2}</span>
-      </span>
-      <br/>
-      <span className="relative inline-block">
-        <span className="opacity-0">{fullLine3}</span>
-        <span className="absolute left-0 top-0 whitespace-nowrap">{line3}</span>
-      </span>
-      <motion.span 
-        animate={{ opacity: [0, 1, 0] }} 
-        transition={{ repeat: Infinity, duration: 0.8 }}
-        className="inline-block w-[4px] h-[0.9em] bg-primary align-middle ml-2"
-      />
+      <span ref={el}></span>
     </motion.h1>
   );
 };
