@@ -25,8 +25,8 @@ import {
   HelpCircle,
   FilePlus,
   DollarSign,
-  Folder,
-  FolderOpen
+  FolderOpen,
+  ArrowRight
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -648,16 +648,17 @@ function App() {
                <p className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-sm xl:text-base text-gray-100 mb-1.5 sm:mb-2 md:mb-4 font-medium drop-shadow leading-snug">
                  Tim kami siap membantu kamu <span className="text-[#00ffff] font-bold">24/7. Tanya gratis,</span> gak ada ruginya!
                </p>
-               <div className="flex flex-row gap-1 sm:gap-2 md:gap-3 lg:gap-4 justify-center w-full">
-                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-1.5 sm:px-2 md:px-4 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-green-400/50 flex-1">
+               <div className="flex flex-row gap-1.5 sm:gap-3 md:gap-4 lg:gap-6 justify-center mt-0.5 sm:mt-1">
+                 <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-2 sm:px-3 md:px-5 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-green-400/50">
                    <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
                      <div className="bg-white text-green-500 rounded-full p-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 flex items-center justify-center shrink-0">
                        <MessageCircle className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" fill="currentColor" />
                      </div>
                      <span className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-xs xl:text-sm text-left whitespace-nowrap">Chat via WhatsApp</span>
                    </div>
+                   <ArrowRight className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 ml-0.5 sm:ml-1 md:ml-2 opacity-90 shrink-0" />
                  </a>
-                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-1.5 sm:px-2 md:px-4 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-white/20 flex-1">
+                 <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 text-white px-2 sm:px-3 md:px-5 lg:px-6 py-1 sm:py-1.5 md:py-2 rounded-full font-bold transition-all hover:scale-105 shadow-md border border-white/20">
                    <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
                      <div className="bg-white text-[#dc2743] rounded-full p-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 flex items-center justify-center shrink-0">
                        <InstagramIcon className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" />
@@ -667,6 +668,7 @@ function App() {
                        <div className="text-[4px] sm:text-[4px] md:text-[6px] lg:text-[9px] xl:text-[10px] font-normal opacity-90">@jokikuy.laporanpkl</div>
                      </div>
                    </div>
+                   <ArrowRight className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 ml-0.5 sm:ml-1 md:ml-2 opacity-90 shrink-0" />
                  </a>
                </div>
              </div>
