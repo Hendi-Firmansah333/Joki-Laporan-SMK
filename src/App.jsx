@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
+import ctaBannerImg from './assets/cta-banner.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -630,26 +631,29 @@ function App() {
 
       {/* CTA Banner */}
       <section className="py-10 px-4">
-        <div className="max-w-5xl mx-auto bg-secondary rounded-[3rem] p-8 md:p-12 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full blur-[100px] opacity-30"></div>
+        <div className="max-w-6xl mx-auto relative overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.15)] rounded-[2.5rem] md:rounded-[3rem] group">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center md:bg-[center_top] z-0 transition-transform duration-700 group-hover:scale-105" 
+            style={{ backgroundImage: `url(${ctaBannerImg})` }}
+          ></div>
+          {/* Dark gradient overlay so text is popping out */}
+          <div className="absolute inset-0 bg-black/30 md:bg-transparent md:bg-gradient-to-b md:from-black/10 md:via-transparent md:to-black/30 z-0"></div>
           
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-white text-center md:text-left flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Masih Bingung? Konsultasi Dulu Aja!</h2>
-              <p className="text-gray-300 mb-8">Tim kami siap membantu kamu 24/7. Tanya gratis, gak ada ruginya!</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-                  <MessageCircle size={20} /> Chat via WhatsApp
-                </button>
-                <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-bold transition-colors">
-                  <Camera size={20} /> DM Instagram
-                </button>
-              </div>
-            </div>
-            
-            <div className="w-48 h-48 bg-white/10 backdrop-blur-md rounded-full border-4 border-white/20 flex items-center justify-center shrink-0">
-               <span className="text-white font-bold text-center">Admin<br/>Support</span>
-            </div>
+          <div className="relative z-10 flex flex-col items-center justify-center p-8 md:p-16 min-h-[350px] md:min-h-[400px]">
+             <div className="text-white text-center flex flex-col items-center max-w-xl mx-auto bg-black/20 md:bg-black/10 p-6 md:p-10 rounded-3xl backdrop-blur-sm border border-white/20 shadow-2xl">
+               <h2 className="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Masih Bingung?</h2>
+               <h3 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Konsultasi Dulu Aja!</h3>
+               <p className="text-gray-100 mb-8 font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] text-sm md:text-base">Tim kami siap membantu kamu 24/7. Tanya gratis, gak ada ruginya!</p>
+               <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+                 <button className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 shadow-[0_10px_20px_rgba(34,197,94,0.3)] w-full sm:w-auto text-sm md:text-base">
+                   <MessageCircle size={22} /> Chat via WhatsApp
+                 </button>
+                 <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 shadow-[0_10px_20px_rgba(236,72,153,0.3)] w-full sm:w-auto text-sm md:text-base">
+                   <Camera size={22} /> DM Instagram
+                 </button>
+               </div>
+             </div>
           </div>
         </div>
       </section>
