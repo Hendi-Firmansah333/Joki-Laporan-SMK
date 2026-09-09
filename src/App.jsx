@@ -282,9 +282,9 @@ function App() {
               <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2 px-8 py-4 text-lg">
                 Order Sekarang <ChevronRight size={24} />
               </a>
-              <button className="w-full sm:w-auto btn-secondary bg-white/80 backdrop-blur-md border border-white shadow-md px-8 py-4 text-lg">
+              <a href="#layanan" className="w-full sm:w-auto btn-secondary bg-white/80 backdrop-blur-md border border-white shadow-md px-8 py-4 text-lg text-center block sm:inline-block hover:bg-white transition-colors">
                 Lihat Daftar Harga
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
