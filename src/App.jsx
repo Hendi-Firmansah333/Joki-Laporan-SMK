@@ -26,7 +26,10 @@ import {
   FilePlus,
   DollarSign,
   FolderOpen,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  Mail,
+  Youtube
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -61,6 +64,23 @@ const InstagramIcon = ({ size = 24, className = "" }) => (
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const TiktokIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
   </svg>
 );
 
@@ -677,27 +697,153 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white pt-16 pb-8 border-t border-gray-100">
+      <footer className="bg-white border-t border-gray-100 pt-16 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-            <img src={logoImg} alt="JokiLaporan Logo" className="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
-            <div className="flex gap-6 text-sm font-medium text-gray-500">
-              <a href="#beranda" className="hover:text-primary">Beranda</a>
-              <a href="#layanan" className="hover:text-primary">Layanan</a>
-              <a href="#cara-order" className="hover:text-primary">Cara Order</a>
-              <a href="#FAQ" className="hover:text-primary">FAQ</a>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+            
+            {/* Column 1: Brand & Features (Span 4) */}
+            <div className="lg:col-span-4 flex flex-col">
+              <img src={logoImg} alt="JokiLaporan Logo" className="h-10 w-auto object-contain self-start mb-6" />
+              <p className="text-gray-600 text-sm mb-8 leading-relaxed">
+                Bantu kerjakan laporan, makalah, proposal, PPT dan segala jenis tugas SMK dengan cepat, rapi, dan berkualitas.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-blue-50 text-blue-600 p-2.5 rounded-xl mb-2">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">Aman & Privasi</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-blue-50 text-blue-600 p-2.5 rounded-xl mb-2">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">Proses Cepat</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-blue-50 text-blue-600 p-2.5 rounded-xl mb-2">
+                    <DollarSign className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">Harga Bersahabat</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-blue-50 text-blue-600 p-2.5 rounded-xl mb-2">
+                    <ThumbsUp className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">Revisi Sampai OK</span>
+                </div>
+              </div>
             </div>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors"><Camera size={20}/></a>
-              <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors"><MessageCircle size={20}/></a>
-              <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors"><Send size={20}/></a>
+
+            {/* Column 2: Navigasi (Span 2) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h3 className="text-gray-900 font-bold text-base mb-6">Navigasi</h3>
+              <ul className="flex flex-col gap-3 text-sm text-gray-500">
+                <li><a href="#beranda" className="hover:text-primary transition-colors">Beranda</a></li>
+                <li><a href="#layanan" className="hover:text-primary transition-colors">Layanan</a></li>
+                <li><a href="#cara-order" className="hover:text-primary transition-colors">Cara Order</a></li>
+                <li><a href="#testimoni" className="hover:text-primary transition-colors">Testimoni</a></li>
+                <li><a href="#FAQ" className="hover:text-primary transition-colors">FAQ</a></li>
+                <li><a href="#kontak" className="hover:text-primary transition-colors">Kontak</a></li>
+              </ul>
             </div>
+
+            {/* Column 3: Layanan Kami (Span 2) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h3 className="text-gray-900 font-bold text-base mb-6">Layanan Kami</h3>
+              <ul className="flex flex-col gap-3 text-sm text-gray-500">
+                <li><a href="#" className="hover:text-primary transition-colors">Laporan PKL</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Makalah</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Proposal</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">PPT</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Daftar Isi & Tabel</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Tugas SMK Lainnya</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Bantuan (Span 2) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h3 className="text-gray-900 font-bold text-base mb-6">Bantuan</h3>
+              <ul className="flex flex-col gap-3 text-sm text-gray-500">
+                <li><a href="#cara-order" className="hover:text-primary transition-colors">Cara Order</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Metode Pembayaran</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Ketentuan Layanan</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Pusat Bantuan</a></li>
+              </ul>
+            </div>
+
+            {/* Column 5: Hubungi Kami (Span 2) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h3 className="text-gray-900 font-bold text-base mb-6">Hubungi Kami</h3>
+              <ul className="flex flex-col gap-4 text-sm text-gray-500 mb-8">
+                <li>
+                  <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-green-500 transition-colors">
+                    <div className="bg-green-50 text-green-500 p-1.5 rounded-full"><MessageCircle className="w-4 h-4" /></div>
+                    <span>Chat via WhatsApp</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-pink-500 transition-colors">
+                    <div className="bg-pink-50 text-pink-500 p-1.5 rounded-full"><InstagramIcon className="w-4 h-4" /></div>
+                    <span>DM Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-3 hover:text-blue-500 transition-colors">
+                    <div className="bg-blue-50 text-blue-500 p-1.5 rounded-full"><Send className="w-4 h-4" /></div>
+                    <span>Chat via Telegram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:jokilaporan@gmail.com" className="flex items-center gap-3 hover:text-gray-900 transition-colors">
+                    <div className="bg-gray-100 text-gray-600 p-1.5 rounded-full"><Mail className="w-4 h-4" /></div>
+                    <span>jokilaporan@gmail.com</span>
+                  </a>
+                </li>
+              </ul>
+              
+              <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div className="flex flex-col">
+                  <span className="text-gray-900 font-bold text-sm mb-1">Jam Operasional</span>
+                  <span className="text-gray-500 text-xs">Setiap Hari</span>
+                  <span className="text-gray-500 text-xs">08.00 - 22.00 WIB</span>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>© 2026 JokiLaporan. All rights reserved.</p>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-gray-600">Kebijakan Privasi</a>
-              <a href="#" className="hover:text-gray-600">Syarat & Ketentuan</a>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-500">© 2024 JokiLaporan. All rights reserved.</p>
+            
+            <div className="flex items-center gap-4 text-sm text-gray-500">
+              <a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a>
+              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+              <a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a>
+              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+              <a href="#" className="hover:text-primary transition-colors">Kontak</a>
+            </div>
+
+            <div className="flex gap-3">
+              <a href="https://www.instagram.com/jokikuy.laporanpkl/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#E1306C] hover:text-white transition-colors">
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#25D366] hover:text-white transition-colors">
+                <MessageCircle className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#0088cc] hover:text-white transition-colors">
+                <Send className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-black hover:text-white transition-colors">
+                <TiktokIcon className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#FF0000] hover:text-white transition-colors">
+                <Youtube className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
