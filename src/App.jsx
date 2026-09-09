@@ -29,6 +29,9 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.15 }
+  }
+};
+
 const HeroTypingText = () => {
   const [line1, setLine1] = React.useState('');
   const [line2, setLine2] = React.useState('');
