@@ -32,6 +32,32 @@ const staggerContainer = {
   }
 };
 
+const Typewriter = ({ text, delay = 0 }) => {
+  const [displayedText, setDisplayedText] = React.useState('');
+  
+  React.useEffect(() => {
+    let i = 0;
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDisplayedText(text.substring(0, i + 1));
+        i++;
+        if (i === text.length) {
+          clearInterval(interval);
+        }
+      }, 60);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [text, delay]);
+
+  return (
+    <span className="relative inline-block">
+      <span className="opacity-0">{text}</span>
+      <span className="absolute left-0 top-0 whitespace-nowrap">{displayedText}</span>
+    </span>
+  );
+};
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -99,9 +125,15 @@ function App() {
               #StudentSupport
             </motion.div>
             <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary">
-              Joki Laporan <br/>
-              <span className="text-primary">Solusi Tugas,</span><br/>
-              Bukan Drama!
+              <Typewriter text="Joki Laporan" delay={500} /> <br/>
+              <span className="text-primary"><Typewriter text="Solusi Tugas," delay={1300} /></span><br/>
+              <Typewriter text="Bukan Drama!" delay={2200} />
+              <motion.span 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 0] }} 
+                transition={{ repeat: Infinity, duration: 0.8, delay: 3000 }}
+                className="inline-block w-[4px] h-[0.9em] bg-primary align-middle ml-2"
+              />
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg text-gray-700 font-medium max-w-xl">
               Bantu kerjakan laporan, makalah, proposal, PPT dan segala jenis tugas SMK dengan cepat, rapi, dan berkualitas.
