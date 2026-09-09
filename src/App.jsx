@@ -305,12 +305,12 @@ function App() {
           >
             {/* Service Cards */}
             {[
-              { title: 'Laporan PKL', price: '80.000', desc: 'Laporan lengkap, sesuai pedoman sekolah.', icon: '📘' },
-              { title: 'Makalah', price: '60.000', desc: 'Format rapi, isi mendalam, sesuai ketentuan.', icon: '📝' },
-              { title: 'Proposal', price: '70.000', desc: 'Untuk kegiatan, penelitian, atau usaha.', icon: '💡' },
-              { title: 'Presentasi PPT', price: '30.000', desc: 'Desain menarik, isi jelas, siap presentasi.', icon: '📊' },
-              { title: 'Daftar Isi & Tabel', price: '5.000', desc: 'Rapi, otomatis, sesuai format baku.', icon: '📑' },
-              { title: 'Tugas Lainnya', price: 'Tanya', desc: 'Tugas sekolah lainnya? Konsultasi aja dulu!', icon: '📁' },
+              { title: 'Laporan PKL', price: '80.000', desc: 'Laporan lengkap, sesuai pedoman sekolah.', icon: '📘', waText: 'Halo admin JokiLaporan, saya ingin bertanya/memesan jasa pembuatan *Laporan PKL*. Bisa dibantu?' },
+              { title: 'Makalah', price: '60.000', desc: 'Format rapi, isi mendalam, sesuai ketentuan.', icon: '📝', waText: 'Halo admin JokiLaporan, saya ingin bertanya/memesan jasa pembuatan *Makalah*. Bisa dibantu?' },
+              { title: 'Proposal', price: '70.000', desc: 'Untuk kegiatan, penelitian, atau usaha.', icon: '💡', waText: 'Halo admin JokiLaporan, saya ingin bertanya/memesan jasa pembuatan *Proposal*. Bisa dibantu?' },
+              { title: 'Presentasi PPT', price: '30.000', desc: 'Desain menarik, isi jelas, siap presentasi.', icon: '📊', waText: 'Halo admin JokiLaporan, saya ingin bertanya/memesan jasa pembuatan *Presentasi PPT*. Bisa dibantu?' },
+              { title: 'Daftar Isi & Tabel', price: '5.000', desc: 'Rapi, otomatis, sesuai format baku.', icon: '📑', waText: 'Halo admin JokiLaporan, saya ingin bertanya/memesan jasa pembuatan *Daftar Isi & Tabel Otomatis*. Bisa dibantu?' },
+              { title: 'Tugas Lainnya', price: 'Tanya', desc: 'Tugas sekolah lainnya? Konsultasi aja dulu!', icon: '📁', waText: 'Halo admin JokiLaporan, saya mau *konsultasi tentang tugas sekolah lainnya*. Bisa dibantu?' },
             ].map((service, index) => (
               <motion.div key={index} variants={fadeInUp} className="bg-background rounded-3xl p-8 border border-gray-100 hover:border-primary/30 transition-all hover:shadow-xl hover:-translate-y-2 group relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:bg-primary/10 transition-colors"></div>
@@ -321,9 +321,9 @@ function App() {
                   <span className="text-3xl font-bold text-primary">{service.price !== 'Tanya' ? `Rp ${service.price}` : 'Harga Menyesuaikan'}</span>
                 </div>
                 <p className="text-gray-600 mb-8 h-12">{service.desc}</p>
-                <button className="w-full bg-secondary text-white py-3 rounded-xl font-semibold group-hover:bg-primary transition-colors">
+                <a href={`https://wa.me/6289507931092?text=${encodeURIComponent(service.waText)}`} target="_blank" rel="noopener noreferrer" className="block text-center w-full bg-secondary text-white py-3 rounded-xl font-semibold group-hover:bg-primary transition-colors">
                   Pesan Sekarang
-                </button>
+                </a>
               </motion.div>
             ))}
           </motion.div>
