@@ -101,25 +101,34 @@ const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   const testimonials = [
+    // 7 Laporan PKL
     { category: "Laporan PKL", content: "Gokil sih kak! Laporan PKL gue beres dalam semalam. Typo zero, format rapi bgt. Dosen pembimbing sampe speechless. Payment lunas via Dana ya kak! 🔥", rating: 5, id: 1 },
     { category: "Laporan PKL", content: "Sat set banget pelayanannya! Awalnya overthinking takut ketahuan, ternyata bahasanya natural bgt kek ngetik sendiri. Lunas ya kak pelunasannya via Gopay.", rating: 5, id: 2 },
     { category: "Laporan PKL", content: "Penyelamat hidup pas lagi mepet deadline. Gak nyampe 24 jam udah dikirim draftnya. Mantap pol! Transferan sisa udah beres ya kak.", rating: 5, id: 3 },
     { category: "Laporan PKL", content: "Laporan magang kelar tanpa pusing mikirin bab 4! Analisanya dapet banget. Worth every penny lah pokoknya. Udah trf via Dana kak 🙏", rating: 5, id: 4 },
+    { category: "Laporan PKL", content: "Bener-bener anti ribet club! Adminnya asik diajak diskusi soal format laporan yang ribet dari sekolah. Hasilnya? Perfect! Lunas ya kak via OVO.", rating: 5, id: 5 },
+    { category: "Laporan PKL", content: "Wah parah sih ini ngebantu banget buat anak STM yang sibuk praktek. Laporannya detail dan sesuai sama kegiatan bengkel. Mutasi BCA aman ya kak.", rating: 5, id: 6 },
+    { category: "Laporan PKL", content: "Sempet ragu awalnya, tapi pas file nya dikirim langsung sujud syukur wkwk. Rapih banget sumpah. Next order lagi! TF Mandiri udah done kak.", rating: 5, id: 7 },
 
-    { category: "Makalah", content: "Valid no debat, ini joki paling worth it! Makalah kelompok gue dapet A. Adminnya fast respon abis. Makasih kak, mutasi BCA udah masuk ya.", rating: 5, id: 5 },
-    { category: "Makalah", content: "Effortless dapet nilai bagus berkat JokiLaporan. Makalahnya runtut dan daftar pustakanya valid semua. Makasih kak, TF Bank Jago udah masuk ya.", rating: 5, id: 6 },
-    { category: "Makalah", content: "Tugas sejarah kelar sekejap mata. Isinya berbobot gak cuma copas Wikipedia. Best service ever! Cek mutasi Mandiri ya kak udah transfer.", rating: 5, id: 7 },
-    { category: "Makalah", content: "Gila cepet banget sehari jadi! Bahasanya juga rapi gak ketahuan kalau dijokiin. Makasih kak, next time aku order lagi buat tugas akhir. Cek mutasi ya kak udah lunas.", rating: 5, id: 8 },
+    // 5 Makalah
+    { category: "Makalah", content: "Valid no debat, ini joki paling worth it! Makalah kelompok gue dapet A. Adminnya fast respon abis. Makasih kak, mutasi BCA udah masuk ya.", rating: 5, id: 8 },
+    { category: "Makalah", content: "Effortless dapet nilai bagus berkat JokiLaporan. Makalahnya runtut dan daftar pustakanya valid semua. Makasih kak, TF Bank Jago udah masuk ya.", rating: 5, id: 9 },
+    { category: "Makalah", content: "Tugas sejarah kelar sekejap mata. Isinya berbobot gak cuma copas Wikipedia. Best service ever! Cek mutasi Mandiri ya kak udah transfer.", rating: 5, id: 10 },
+    { category: "Makalah", content: "Gila cepet banget sehari jadi! Bahasanya juga rapi gak ketahuan kalau dijokiin. Makasih kak, next time aku order lagi buat tugas akhir. Cek mutasi ya kak udah lunas.", rating: 5, id: 11 },
+    { category: "Makalah", content: "Suka banget sama pelayanannya. Revisi sekali langsung bener sesuai kemauan guru. Harganya juga gak bikin kantong jebol. Udah lunas via ShopeePay ya.", rating: 5, id: 12 },
 
-    { category: "Proposal", content: "Proposal usaha buat ujian praktek langsung di-ACC dong! Bahasanya bener-bener pro tapi tetep masuk akal buat anak SMK. Lunas ya kak via ShopeePay.", rating: 5, id: 9 },
-    { category: "Proposal", content: "Revisi dikerjain cepet banget, adminnya sabar parah ngadepin gue yg bawel. Proposal kelar, hati tenang. Udah ku TF ya kak pelunasannya.", rating: 5, id: 10 },
-    { category: "Proposal", content: "Adminnya ramah banget diajak konsul malem-malem. Proposal usahaku dapet nilai A! Uang jasa udah aku tf ke BCA ya kak, cek aja.", rating: 5, id: 11 },
-    { category: "Proposal", content: "Gak nyangka proposal PKWU dapet pujian dari guru. Ide bisnisnya dikembangin makin keren. Makasih banyak kak, udah lunas ya paymentnya.", rating: 5, id: 12 },
+    // 3 Proposal
+    { category: "Proposal", content: "Proposal usaha buat ujian praktek langsung di-ACC dong! Bahasanya bener-bener pro tapi tetep masuk akal buat anak SMK. Lunas ya kak via ShopeePay.", rating: 5, id: 13 },
+    { category: "Proposal", content: "Revisi dikerjain cepet banget, adminnya sabar parah ngadepin gue yg bawel. Proposal kelar, hati tenang. Udah ku TF ya kak pelunasannya.", rating: 5, id: 14 },
+    { category: "Proposal", content: "Adminnya ramah banget diajak konsul malem-malem. Proposal usahaku dapet nilai A! Uang jasa udah aku tf ke BCA ya kak, cek aja.", rating: 5, id: 15 },
 
-    { category: "PPT", content: "PPT nya nyala abis bangku! 😭 Transisinya smooth, desainnya ga norak. Guruku nanya pake template apa wkwk. Payment OVO udah meluncur kak.", rating: 5, id: 13 },
-    { category: "PPT", content: "Sumpah PPT-nya cakep parah, aesthetic ala-ala Pinterest gitu. Presentasi jadi makin pede. Harga pas di kantong pelajar. Done payment ya kak!", rating: 5, id: 14 },
-    { category: "PPT", content: "Keren pol! Animasi dan fontnya pas, gak lebay. Langsung siap presentasi besok. Thank you JokiLaporan, payment udah masuk OVO ya.", rating: 5, id: 15 },
-    { category: "PPT", content: "Beneran dibikin interaktif! Gak ngebosenin sumpah, temen-temen sekelas pada nanya bikin di mana. Lunas ya kak payment via Dana.", rating: 5, id: 16 }
+    // 6 PPT
+    { category: "PPT", content: "PPT nya nyala abis bangku! 😭 Transisinya smooth, desainnya ga norak. Guruku nanya pake template apa wkwk. Payment OVO udah meluncur kak.", rating: 5, id: 16 },
+    { category: "PPT", content: "Sumpah PPT-nya cakep parah, aesthetic ala-ala Pinterest gitu. Presentasi jadi makin pede. Harga pas di kantong pelajar. Done payment ya kak!", rating: 5, id: 17 },
+    { category: "PPT", content: "Keren pol! Animasi dan fontnya pas, gak lebay. Langsung siap presentasi besok. Thank you JokiLaporan, payment udah masuk OVO ya.", rating: 5, id: 18 },
+    { category: "PPT", content: "Beneran dibikin interaktif! Gak ngebosenin sumpah, temen-temen sekelas pada nanya bikin di mana. Lunas ya kak payment via Dana.", rating: 5, id: 19 },
+    { category: "PPT", content: "Desain minimalis elegan persis kayak yang gue mau. Pengaturannya rapi, teks nya poin-poin gak panjang lebar. Mantap, lunas ya kak via Gopay.", rating: 5, id: 20 },
+    { category: "PPT", content: "Slide nya keren banget ada infografisnya segala! Kelompokku jadi juara 1 pas presentasi. Asli recommended. TF BRI udah masuk ya kak.", rating: 5, id: 21 }
   ];
 
   const filteredTestimonials = filter === 'Semua' ? testimonials : testimonials.filter(t => t.category === filter);
