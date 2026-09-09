@@ -95,90 +95,214 @@ const HeroTypingText = () => {
 };
 
 const TestimonialsSection = () => {
+  const [filter, setFilter] = React.useState('Semua');
+
   const testimonials = [
     {
-      name: "Rina S.",
-      role: "Siswi SMK Jurusan TKJ",
-      content: "Wah gila sih, laporan PKL aku dibikin rapi banget sampe ke daftar isi dan halamannya. Guru pembimbing langsung acc tanpa revisi! Thank you banget JokiLaporan!",
+      name: "Naya Putri",
+      role: "SMK RPL",
+      category: "Laporan PKL",
+      content: "Laporan PKL aku selesai tepat waktu dan hasilnya rapi banget! Revisi juga dilayanin dengan sabar. Recommended banget!",
+      rating: 5,
+      avatar: "N"
+    },
+    {
+      name: "Rizky Maulana",
+      role: "SMK TKJ",
+      category: "Laporan PKL",
+      content: "Awalnya ragu, tapi setelah coba ternyata hasilnya memuaskan. Format sesuai pedoman sekolah dan penjelasannya detail.",
       rating: 5,
       avatar: "R"
     },
     {
-      name: "Bima A.",
-      role: "Siswa SMK Otomotif",
-      content: "Awalnya ragu takut ketahuan, tapi pas hasilnya dikirim, bahasanya natural banget kayak tulisan sendiri. Harga juga masuk akal buat kantong pelajar. Recommended!",
-      rating: 5,
-      avatar: "B"
-    },
-    {
-      name: "Siti F.",
-      role: "Siswi SMK Akuntansi",
-      content: "Deadline mepet tinggal 2 hari lagi tapi tugas makalah belum nyentuh sama sekali. Untung nemu jasa ini, sehari langsung kelar dan rapi pol. Sukses terus kak!",
+      name: "Salsa Anindya",
+      role: "SMK AKL",
+      category: "Makalah",
+      content: "Makalahnya bagus banget, tinggal kumpul! Adminnya juga fast respon dan ramah. Thankyou JokiLaporan!",
       rating: 5,
       avatar: "S"
     },
     {
-      name: "Dicky M.",
-      role: "Siswa SMK RPL",
-      content: "Adminnya fast respon dan ramah banget pas diajak konsul. PPT buat ujian praktek dibikin interaktif dan desainnya modern. Dapet nilai A dari penguji!",
+      name: "Dimas Pratama",
+      role: "SMK TKR",
+      category: "PPT",
+      content: "PPT-nya keren, desainnya modern banget. Guruku sampai nanya pakai aplikasi apa. Mantap!",
       rating: 5,
       avatar: "D"
+    },
+    {
+      name: "Aulia Rahma",
+      role: "SMK DKV",
+      category: "Proposal",
+      content: "Bantuin dari awal sampai selesai, prosesnya gampang dan jelas. Harga juga masih terjangkau buat pelajar.",
+      rating: 5,
+      avatar: "A"
+    },
+    {
+      name: "Fahri Saputra",
+      role: "SMK MPLB",
+      category: "Laporan PKL",
+      content: "Deadline mepet tapi masih bisa dikerjain. Hasilnya sesuai banget sama yang aku minta. Top banget!",
+      rating: 5,
+      avatar: "F"
     }
   ];
 
+  const filteredTestimonials = filter === 'Semua' ? testimonials : testimonials.filter(t => t.category === filter);
+
   return (
-    <section id="testimoni" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[80px]"></div>
-        <div className="absolute top-1/2 right-0 w-80 h-80 bg-blue-100/40 rounded-full blur-[80px]"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-blue-100/50 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4 shadow-sm border border-blue-100">
-            <Star size={16} className="fill-primary" /> TESTIMONI PELANGGAN
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-secondary mb-4 tracking-tight">Apa Kata Mereka?</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">Ribuan pelajar sudah terbantu tugasnya. Jangan cuma percaya kata kami, lihat sendiri bukti kepuasan mereka.</p>
+    <section id="testimoni" className="py-20 bg-[#F4F7FF] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Top Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+          <div className="flex-1 max-w-2xl">
+            <span className="inline-flex items-center gap-2 bg-blue-100 text-gray-600 font-semibold px-4 py-2 rounded-full text-xs tracking-wide mb-4 uppercase">
+              <MessageCircle size={14} className="text-gray-500" /> TESTIMONI
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E293B] mb-6 leading-tight">
+              Cerita Mereka, <br/>
+              <span className="text-primary">Bukti Nyata!</span>
+            </h2>
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              Ribuan siswa SMK sudah merasakan kemudahan mengerjakan tugas bersama JokiLaporan. Ini beberapa cerita mereka yang sudah mempercayakan tugasnya kepada kami.
+            </p>
+            <div className="flex items-center gap-4">
+               <div className="flex -space-x-4">
+                 {[...Array(4)].map((_, i) => (
+                   <div key={i} className={`w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white font-bold text-xs ${['bg-blue-500', 'bg-purple-500', 'bg-pink-500', 'bg-green-500'][i]}`}>
+                     {['A','R','D','S'][i]}
+                   </div>
+                 ))}
+               </div>
+               <div className="text-sm text-gray-600 font-medium">
+                 Dipercaya oleh banyak<br/>siswa SMK di seluruh Indonesia
+               </div>
+               <svg className="w-10 h-10 text-primary ml-2 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testi, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white border border-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative group flex flex-col"
-            >
-              <div className="absolute top-8 right-8 text-blue-50 opacity-50 group-hover:text-blue-100 transition-colors">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.017 21L16.417 14.604C16.657 13.984 16.897 13.404 17.137 12.864C17.377 12.324 17.597 11.844 17.797 11.424C17.997 11.004 18.177 10.664 18.337 10.404C18.497 10.144 18.657 9.984 18.817 9.924H14.017V3H21.017V9.924C21.017 11.524 20.677 13.204 19.997 14.964C19.317 16.724 18.417 18.734 17.297 21H14.017ZM3.017 21L5.417 14.604C5.657 13.984 5.897 13.404 6.137 12.864C6.377 12.324 6.597 11.844 6.797 11.424C6.997 11.004 7.177 10.664 7.337 10.404C7.497 10.144 7.657 9.984 7.817 9.924H3.017V3H10.017V9.924C10.017 11.524 9.677 13.204 8.997 14.964C8.317 16.724 7.417 18.734 6.297 21H3.017Z" />
-                </svg>
-              </div>
-              <div className="flex gap-1 mb-6">
-                {[...Array(testi.rating)].map((_, i) => (
-                  <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-8 relative z-10 leading-relaxed italic flex-1">"{testi.content}"</p>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-inner shrink-0">
-                  {testi.avatar}
-                </div>
-                <div>
-                  <h4 className="font-bold text-secondary">{testi.name}</h4>
-                  <p className="text-xs text-gray-400 font-medium">{testi.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/* Stats Banner */}
+        <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 relative z-10">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+            <div className="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
+              <Users size={28} />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#1E293B]">500+</div>
+              <div className="text-sm font-semibold text-[#1E293B]">Siswa SMK</div>
+              <div className="text-xs text-gray-500 mt-1">Telah mempercayakan tugasnya</div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:border-l md:border-gray-100 md:pl-8 text-center md:text-left">
+            <div className="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
+              <Star size={28} className="fill-primary" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#1E293B]">4.9/5</div>
+              <div className="text-sm font-semibold text-[#1E293B]">Rating Kepuasan</div>
+              <div className="text-xs text-gray-500 mt-1">Dari para pelanggan</div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:border-l md:border-gray-100 md:pl-8 text-center md:text-left">
+            <div className="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
+              <FileText size={28} />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#1E293B]">1.000+</div>
+              <div className="text-sm font-semibold text-[#1E293B]">Tugas Selesai</div>
+              <div className="text-xs text-gray-500 mt-1">Berbagai jenis tugas SMK</div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:border-l md:border-gray-100 md:pl-8 text-center md:text-left">
+            <div className="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
+              <ShieldCheck size={28} />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#1E293B]">100%</div>
+              <div className="text-sm font-semibold text-[#1E293B]">Aman & Terpercaya</div>
+              <div className="text-xs text-gray-500 mt-1">Privasi selalu kami jaga</div>
+            </div>
+          </div>
         </div>
+
+        {/* Apa Kata Mereka Header */}
+        <div className="mb-10">
+          <span className="inline-flex items-center gap-2 bg-blue-100 text-primary font-bold px-4 py-2 rounded-full text-xs tracking-wide mb-4">
+            <Star size={14} className="fill-primary" /> TESTIMONI PELANGGAN
+          </span>
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
+            <div className="max-w-2xl">
+              <h3 className="text-3xl md:text-4xl font-bold text-[#1E293B] mb-4">Apa Kata <span className="text-primary">Mereka?</span></h3>
+              <p className="text-gray-600">Ini adalah pengalaman nyata dari siswa SMK yang sudah menggunakan layanan JokiLaporan. Mereka puas, tugas beres, dan kamu juga bisa merasakannya!</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Semua', 'Laporan PKL', 'Makalah', 'Proposal', 'PPT'].map(cat => (
+                <button 
+                  key={cat} 
+                  onClick={() => setFilter(cat)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${filter === cat ? 'bg-primary text-white shadow-md' : 'bg-blue-50/50 text-gray-600 hover:bg-blue-100'}`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grid Cards */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence>
+            {filteredTestimonials.map((testi) => (
+              <motion.div 
+                key={testi.name}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white border border-gray-100 p-8 rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] relative flex flex-col h-full group"
+              >
+                {/* Dots Icon */}
+                <div className="absolute top-8 right-8 text-gray-300">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
+                  </svg>
+                </div>
+                
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-inner shrink-0">
+                    {testi.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#1E293B]">{testi.name}</h4>
+                    <p className="text-xs text-gray-500 font-medium">{testi.role}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-1 mb-6">
+                  {[...Array(testi.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+
+                <p className="text-gray-600 relative z-10 leading-relaxed flex-1 font-medium">"{testi.content}"</p>
+
+                {/* Big Quote Icon */}
+                <div className="absolute bottom-6 right-6 text-blue-100 opacity-60">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.604C16.657 13.984 16.897 13.404 17.137 12.864C17.377 12.324 17.597 11.844 17.797 11.424C17.997 11.004 18.177 10.664 18.337 10.404C18.497 10.144 18.657 9.984 18.817 9.924H14.017V3H21.017V9.924C21.017 11.524 20.677 13.204 19.997 14.964C19.317 16.724 18.417 18.734 17.297 21H14.017ZM3.017 21L5.417 14.604C5.657 13.984 5.897 13.404 6.137 12.864C6.377 12.324 6.597 11.844 6.797 11.424C6.997 11.004 7.177 10.664 7.337 10.404C7.497 10.144 7.657 9.984 7.817 9.924H3.017V3H10.017V9.924C10.017 11.524 9.677 13.204 8.997 14.964C8.317 16.724 7.417 18.734 6.297 21H3.017Z" />
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
-};
+}
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
