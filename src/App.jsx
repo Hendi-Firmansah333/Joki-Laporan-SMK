@@ -29,32 +29,100 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.15 }
-  }
-};
+const HeroTypingText = () => {
+  const [line1, setLine1] = React.useState('');
+  const [line2, setLine2] = React.useState('');
+  const [line3, setLine3] = React.useState('');
 
-const Typewriter = ({ text, delay = 0 }) => {
-  const [displayedText, setDisplayedText] = React.useState('');
-  
+  const fullLine1 = "Joki Laporan";
+  const fullLine2 = "Solusi Tugas,";
+  const line3Words = ["Bukan Drama!", "Pasti Beres!", "Bebas Pusing!", "Nilai Maksimal!"];
+
   React.useEffect(() => {
-    let i = 0;
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setDisplayedText(text.substring(0, i + 1));
-        i++;
-        if (i === text.length) {
-          clearInterval(interval);
+    let currentLine = 1;
+    let wordIndex = 0;
+    let isDeleting = false;
+    let text3 = "";
+
+    let timeout;
+
+    const type = () => {
+      if (currentLine === 1) {
+        setLine1((prev) => {
+          const next = fullLine1.substring(0, prev.length + 1);
+          if (next === fullLine1) {
+            currentLine = 2;
+            timeout = setTimeout(type, 200); 
+          } else {
+            timeout = setTimeout(type, 50);
+          }
+          return next;
+        });
+      } else if (currentLine === 2) {
+        setLine2((prev) => {
+          const next = fullLine2.substring(0, prev.length + 1);
+          if (next === fullLine2) {
+            currentLine = 3;
+            timeout = setTimeout(type, 200); 
+          } else {
+            timeout = setTimeout(type, 50);
+          }
+          return next;
+        });
+      } else if (currentLine === 3) {
+        const targetWord = line3Words[wordIndex];
+        
+        if (!isDeleting) {
+          text3 = targetWord.substring(0, text3.length + 1);
+          setLine3(text3);
+          
+          if (text3 === targetWord) {
+            isDeleting = true;
+            timeout = setTimeout(type, 2000); // Pause before deleting
+          } else {
+            timeout = setTimeout(type, 50); // Typing speed
+          }
+        } else {
+          text3 = targetWord.substring(0, text3.length - 1);
+          setLine3(text3);
+          
+          if (text3 === "") {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % line3Words.length;
+            timeout = setTimeout(type, 300); // Pause before typing new word
+          } else {
+            timeout = setTimeout(type, 30); // Deleting speed
+          }
         }
-      }, 60);
-      return () => clearInterval(interval);
-    }, delay);
-    return () => clearTimeout(timer);
-  }, [text, delay]);
+      }
+    };
+
+    timeout = setTimeout(type, 500); 
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
-    <span className="relative inline-block">
-      <span className="opacity-0">{text}</span>
-      <span className="absolute left-0 top-0 whitespace-nowrap">{displayedText}</span>
-    </span>
+    <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary min-h-[140px] lg:min-h-[200px]">
+      <span className="relative inline-block">
+        <span className="opacity-0">{fullLine1}</span>
+        <span className="absolute left-0 top-0 whitespace-nowrap">{line1}</span>
+      </span>
+      <br/>
+      <span className="text-primary relative inline-block">
+        <span className="opacity-0">{fullLine2}</span>
+        <span className="absolute left-0 top-0 whitespace-nowrap">{line2}</span>
+      </span>
+      <br/>
+      <span className="relative inline-block">
+        <span className="opacity-0">{line3Words.reduce((a, b) => a.length > b.length ? a : b)}</span>
+        <span className="absolute left-0 top-0 whitespace-nowrap">{line3}</span>
+      </span>
+      <motion.span 
+        animate={{ opacity: [0, 1, 0] }} 
+        transition={{ repeat: Infinity, duration: 0.8 }}
+        className="inline-block w-[4px] h-[0.9em] bg-primary align-middle ml-2"
+      />
+    </motion.h1>
   );
 };
 
@@ -124,17 +192,7 @@ function App() {
             <motion.div variants={fadeInUp} className="inline-block bg-primary/10 text-primary-dark px-4 py-2 rounded-full font-semibold text-sm mb-2 border border-primary/20 backdrop-blur-md shadow-sm">
               #StudentSupport
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-4xl lg:text-6xl font-bold leading-tight text-secondary">
-              <Typewriter text="Joki Laporan" delay={500} /> <br/>
-              <span className="text-primary"><Typewriter text="Solusi Tugas," delay={1300} /></span><br/>
-              <Typewriter text="Bukan Drama!" delay={2200} />
-              <motion.span 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 1, 0] }} 
-                transition={{ repeat: Infinity, duration: 0.8, delay: 3000 }}
-                className="inline-block w-[4px] h-[0.9em] bg-primary align-middle ml-2"
-              />
-            </motion.h1>
+            <HeroTypingText />
             <motion.p variants={fadeInUp} className="text-lg text-gray-700 font-medium max-w-xl">
               Bantu kerjakan laporan, makalah, proposal, PPT dan segala jenis tugas SMK dengan cepat, rapi, dan berkualitas.
             </motion.p>
