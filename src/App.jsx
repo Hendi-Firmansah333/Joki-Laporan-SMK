@@ -15,7 +15,8 @@ import {
   Camera, 
   MessageCircle, 
   Menu,
-  X
+  X,
+  ChevronDown
 } from 'lucide-react';
 import heroImg from './assets/hero.png';
 import logoImg from './assets/logo.png';
@@ -66,6 +67,53 @@ const HeroTypingText = () => {
   );
 };
 
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = React.useState(null);
+
+  const faqs = [
+    { q: "Berapa lama proses pengerjaannya?", a: "Tergantung jenis tugas. Untuk tugas ringan seperti PPT biasanya 1-2 hari. Laporan PKL/Makalah bisa 3-7 hari sesuai kesepakatan awal." },
+    { q: "Apakah datanya dijamin aman?", a: "100% Aman. Kami sangat menjaga privasi klien. Dokumen dan identitas kamu tidak akan pernah disebarluaskan." },
+    { q: "Bisa revisi kalau ada yang kurang?", a: "Tentu! Kami memberikan garansi revisi sampai sesuai dengan format atau ketentuan yang disepakati di awal." },
+    { q: "Bagaimana sistem pembayarannya?", a: "Kamu bisa membayar DP 50% di awal setelah deal, lalu pelunasan 50% saat tugas sudah selesai dan siap dikirim." },
+    { q: "Format laporannya bisa menyesuaikan kampus/sekolah?", a: "Sangat bisa. Kamu hanya perlu mengirimkan pedoman penulisan atau contoh format dari sekolah/kampusmu." }
+  ];
+
+  return (
+    <section id="FAQ" className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-primary font-semibold tracking-wider text-sm bg-blue-50 px-4 py-2 rounded-full">FAQ</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-6 mb-4">Pertanyaan yang Sering Diajukan</h2>
+          <p className="text-gray-500">Punya pertanyaan lain? Jangan ragu untuk menghubungi admin kami.</p>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-background">
+              <button 
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+              >
+                <h3 className="font-bold text-lg text-secondary">{faq.q}</h3>
+                <ChevronDown className={`text-primary transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`} />
+              </button>
+              <motion.div 
+                initial={false} 
+                animate={{ height: openIndex === idx ? 'auto' : 0, opacity: openIndex === idx ? 1 : 0 }}
+                className="overflow-hidden"
+              >
+                <div className="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                  {faq.a}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -85,6 +133,7 @@ function App() {
               <a href="#layanan" className="text-secondary hover:text-primary font-medium transition-colors">Layanan</a>
               <a href="#cara-order" className="text-secondary hover:text-primary font-medium transition-colors">Cara Order</a>
               <a href="#testimoni" className="text-secondary hover:text-primary font-medium transition-colors">Testimoni</a>
+              <a href="#FAQ" className="text-secondary hover:text-primary font-medium transition-colors">FAQ</a>
               <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-light transition-all shadow-md hover:shadow-primary/40">
                 Order Sekarang
               </button>
@@ -106,6 +155,7 @@ function App() {
             <a href="#layanan" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">Layanan</a>
             <a href="#cara-order" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">Cara Order</a>
             <a href="#testimoni" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">Testimoni</a>
+            <a href="#FAQ" onClick={() => setIsMenuOpen(false)} className="block text-secondary font-medium">FAQ</a>
             <button className="w-full bg-primary text-white px-6 py-3 rounded-full font-semibold mt-4">
               Order Sekarang
             </button>
@@ -256,6 +306,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* CTA Banner */}
       <section className="py-10 px-4">
