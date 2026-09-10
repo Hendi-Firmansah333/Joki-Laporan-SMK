@@ -830,7 +830,7 @@ function Home() {
               <h3 className="text-gray-900 font-bold text-base mb-6">Bantuan</h3>
               <ul className="flex flex-col gap-3 text-sm text-gray-500">
                 <li><a href="#cara-order" className="hover:text-primary transition-colors">Cara Order</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Metode Pembayaran</a></li>
+                <li><Link to="/bantuan/metode-pembayaran" className="hover:text-primary transition-colors">Metode Pembayaran</Link></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Ketentuan Layanan</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
