@@ -831,10 +831,10 @@ function Home() {
               <ul className="flex flex-col gap-3 text-sm text-gray-500">
                 <li><a href="#cara-order" className="hover:text-primary transition-colors">Cara Order</a></li>
                 <li><Link to="/bantuan/metode-pembayaran" className="hover:text-primary transition-colors">Metode Pembayaran</Link></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Ketentuan Layanan</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Pusat Bantuan</a></li>
+                <li><Link to="/info/ketentuan-layanan" className="hover:text-primary transition-colors">Ketentuan Layanan</Link></li>
+                <li><Link to="/info/kebijakan-privasi" className="hover:text-primary transition-colors">Kebijakan Privasi</Link></li>
+                <li><Link to="/info/syarat-ketentuan" className="hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
+                <li><Link to="/info/pusat-bantuan" className="hover:text-primary transition-colors">Pusat Bantuan</Link></li>
               </ul>
             </div>
 
@@ -885,9 +885,9 @@ function Home() {
             <p className="text-sm text-gray-500">© 2024 JokiLaporan. All rights reserved.</p>
             
             <div className="flex items-center gap-4 text-sm text-gray-500">
-              <a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a>
+              <Link to="/info/kebijakan-privasi" className="hover:text-primary transition-colors">Kebijakan Privasi</Link>
               <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a>
+              <Link to="/info/syarat-ketentuan" className="hover:text-primary transition-colors">Syarat & Ketentuan</Link>
               <span className="w-1 h-1 rounded-full bg-gray-300"></span>
               <a href="https://wa.me/6289507931092" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Kontak</a>
             </div>
