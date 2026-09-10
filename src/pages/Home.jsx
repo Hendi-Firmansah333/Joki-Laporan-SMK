@@ -31,9 +31,9 @@ import {
   Zap,
   Mail
 } from 'lucide-react';
-import heroImg from './assets/hero.png';
-import logoImg from './assets/logo.png';
-import ctaBannerImg from './assets/cta-banner.png';
+import heroImg from '../assets/hero.png';
+import logoImg from '../assets/logo.png';
+import ctaBannerImg from '../assets/cta-banner.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
