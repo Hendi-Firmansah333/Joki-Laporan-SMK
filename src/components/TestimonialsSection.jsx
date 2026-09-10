@@ -59,12 +59,30 @@ export const TestimonialsSection = () => {
     setActiveIndex(index);
   };
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const scaleUp = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <section id="testimoni" className="py-20 bg-[#F4F7FF] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInLeft}
+          className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8"
+        >
           <div className="flex-1 max-w-2xl">
             <span className="inline-flex items-center gap-2 bg-blue-100 text-gray-600 font-semibold px-4 py-2 rounded-full text-xs tracking-wide mb-4 uppercase">
               <MessageCircle size={14} className="text-gray-500" /> TESTIMONI
@@ -90,10 +108,13 @@ export const TestimonialsSection = () => {
                <svg className="w-10 h-10 text-primary ml-2 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Stats Banner */}
-        <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 relative z-10">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={scaleUp}
+          className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 relative z-10"
+        >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
             <div className="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center shrink-0">
               <Users size={28} />
@@ -134,10 +155,13 @@ export const TestimonialsSection = () => {
               <div className="text-xs text-gray-500 mt-1">Privasi selalu kami jaga</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Apa Kata Mereka Header */}
-        <div className="mb-10">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}
+          className="mb-10"
+        >
           <span className="inline-flex items-center gap-2 bg-blue-100 text-primary font-bold px-4 py-2 rounded-full text-xs tracking-wide mb-4">
             <Star size={14} className="fill-primary" /> TESTIMONI PELANGGAN
           </span>
@@ -158,7 +182,7 @@ export const TestimonialsSection = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Grid Cards with Slider */}
         <div className="relative">

@@ -26,20 +26,45 @@ export const FAQSection = () => {
     { q: "Pertanyaan lain?", a: "Jika masih ada pertanyaan lain, jangan ragu untuk langsung chat admin kami 24/7!", icon: <HelpCircle size={20} /> },
   ];
 
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
+  const fadeInDown = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
     <section id="FAQ" className="py-24 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInDown}
+          className="text-center mb-16"
+        >
           <span className="inline-flex items-center gap-2 bg-blue-100/50 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4 shadow-sm border border-blue-100">
             <HelpCircle size={16} /> PERTANYAAN YANG SERING DITANYAKAN
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-secondary mb-4 tracking-tight">Frequently Asked Questions</h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">Masih ada yang bikin bingung? Tenang, mungkin pertanyaan kamu sudah ada jawabannya di sini.</p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+        >
           {faqs.map((faq, idx) => (
-            <div 
+            <motion.div 
+              variants={fadeInUp}
               key={idx} 
               className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
                 openIndex === idx 
@@ -82,9 +107,9 @@ export const FAQSection = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
